@@ -22,6 +22,7 @@
   "homepage": "https://github.com/NeilDACE/Memory#readme",
   "devDependencies": {
     "sass": "^1.100.0",
+    "typedoc": "^0.28.19",
     "typescript": "^6.0.3",
     "vite": "^8.0.16"
   }
