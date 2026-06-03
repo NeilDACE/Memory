@@ -1,1 +1,22 @@
-Memory Checkliste.pdf
+node_modules/
+Documents/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+
+.env
+.env.*
+!.env.example
+
+.log
+npm-debug.log
+yarn-debug.log*
+pnpm-debug.log*
+
+.DS_Store
+Thumbs.db
+
+.vscode/*
+!.vscode/extensions.json
+.idea/
