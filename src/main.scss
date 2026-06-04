@@ -1,4 +1,4 @@
-@use "./components/main";
+@use "./styles/components/main" as mix;
 
 * {
   margin: 0;
@@ -7,5 +7,20 @@
 }
 
 main {
-  background-color: #978f22;
+  @include mix.flex-center($direction: column);
+  height: 100dvh;
+  background-color: mix.$gray;
+  color: mix.$white;
+}
+
+h1 {
+  font-family: mix.$font-heading;
+  font-weight: 700;
+  font-size: mix.$size-heading-xl;
+}
+
+p {
+  font-family: mix.$font-body;
+  font-size: mix.$size-body-lg;
+  font-weight: 400;
 }

@@ -1,0 +1,41 @@
+@use "../abstract/mixins" as mix;
+@use "../base/variables" as var;
+
+.btn {
+	@include mix.flex-center($direction: row);
+	border: none;
+	background-color: var.$yellow;
+	padding: var.$space-button-y var.$space-button-x;
+	gap: var.$space-button-gap;
+	margin-top: var.$space-button-top;
+	cursor: pointer;
+	transition: transform var.$duration-fast var.$ease-standard;
+}
+
+.btn:hover {
+	transform: scale(1.05);
+}
+
+.btn__img__primary {
+	transition: transform var.$duration-fast var.$ease-standard;
+}
+
+.btn:hover .btn__img__primary {
+	transform: rotate(-30deg);
+}
+
+.btn__img__secondary {
+	transition: transform var.$duration-fast var.$ease-standard;
+}
+
+.btn:hover .btn__img__secondary {
+	content: url("/assets/imgs/arrow-hover.svg");
+	transform: translateX(2px);
+}
+
+.btn__text {
+	font-family: var.$font-heading;
+	font-weight: 700;
+	font-size: var.$size-button-text;
+	color: var.$gray;
+}
