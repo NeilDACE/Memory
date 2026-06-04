@@ -1,0 +1,93 @@
+// Theme scaffold: game
+[data-theme="game"] {
+  --theme-bg: linear-gradient(223.71deg, #303131 43.86%, #6D6D6D 122.2%);
+  
+  --theme-header-bg: #4DD5BC33;
+  --theme-header-radius: 0px;
+  --theme-header-shadow: 3px 2px 10.1px 0px #00000033;
+
+  --theme-header-left-frame-bg: #86E9D64D;
+  --theme-header-left-frame-radius: 0px;
+  --theme-header-left-frame-shadow: 0px 0px 0px 0px #00000000;
+  --theme-header-left-frame-padding: 17px 20px 17px 20px;
+
+  --theme-header-left-frame-icon-team-1: url("Memory/public/assets/imgs/themes/code-vibe-theme/blue-icon.svg");
+  --theme-header-left-frame-icon-team-2: url("Memory/public/assets/imgs/themes/code-vibe-theme/orange-icon.svg");
+  --theme-header-left-frame-points-font-family: "October Devanagari", serif;
+  --theme-header-left-frame-points-team-1-color: #2BB1FF;
+  --theme-header-left-frame-points-team-2-color: #F58E39;
+  --theme-header-left-frame-points-font-size: 24px;
+
+  --theme-header-current-player-font-family: "Red Rose", serif;
+  --theme-header-current-player-font-size: 26px;
+  --theme-header-current-player-icon: url("Memory/public/assets/imgs/themes/code-vibe-theme/current-player-icon.svg");
+
+  --theme-pop-up-bg: #FFFFFF;
+  --theme-pop-up-radius: 0px;
+  --theme-pop-up-font-family: "Red Rose", serif;
+  --theme-pop-up-font-color: #303131;
+  --theme-pop-up-font-size: 32px;
+
+  --theme-game-over-icon: url("Memory/public/assets/imgs/themes/code-vibe-theme/game-over.svg");
+  --theme-game-over-bg: #303131;
+  --theme-game-over-padding: 24px;
+  --theme-game-over-text-color: #FFFFFF;
+  --theme-game-over-text-size: 26px;
+
+  --theme-winner-bg: #303131;
+  --theme-winner-headline-color: #F58E39;
+  --theme-winner-headline-font-family: "Red Rose", serif;
+  --theme-winner-headline-size: 60px;
+  --theme-winner-text-color: #FFFFFF;
+  --theme-winner-text-font-family: "Red Rose", serif;
+  --theme-winner-text-size: 40px;
+  --theme-winner-icon: url("Memory/public/assets/imgs/themes/code-vibe-theme/winner.svg");
+
+  --theme-draw-bg: #303131;
+  --theme-draw-text-color: #FFFFFF;
+  --theme-draw-text-font-family: "Red Rose", serif;
+  --theme-draw-text-size: 40px;
+  --theme-draw-header-icon: url("Memory/public/assets/imgs/themes/code-vibe-theme/draw.svg");
+  --theme-draw-icon: url("Memory/public/assets/imgs/themes/code-vibe-theme/scale-icon.svg");
+
+  --theme-card-front: url("Memory/public/assets/imgs/themes/code-vibe-theme/cards/front/code-vibe-theme-card-icon-01.svg");
+  --theme-card-back: url("Memory/public/assets/imgs/themes/code-vibe-theme/cards/back/code-vibe-theme-card-icon-backside.svg");
+  --theme-card-border-radius: 0px;
+  --theme-card-shadow: 0px 0px 0px 0px #00000000;
+
+  --match-status-color:#FFFFFF;
+  --match-status-inner-border: inset 0 0 0 5px #4DD5BC;
+  --match-status-shadow: 6px 6px 8px 0px #4DD5BC4D;
+
+  --theme-exit-button-color: #86E9D624;
+  --theme-exit-button-border: inset 0 0 0 2px #4DD5BC;
+  --theme-exit-button-radius: 0px;
+  --theme-exit-button-padding: 16px 24px 16px 24px;
+  --theme-exit-button-hover-color: #86E9D642;
+  --theme-exit-button-hover-border: inset 0 0 0 3px #4DD5BC;
+  --theme-exit-button-hover-shadow: 4px 4px 6px 0px #4DD5BC33;
+
+  --theme-exit-button-icon-color: #FFFFFF;
+  --theme-exit-button-icon-size: size(30px, 30px);
+  --theme-exit-button-icon-hover-color: #FFFFFF;
+  --theme-exit-button-icon-hover-shadow: 3px 3px 4px 0px #00000040;
+
+  --theme-exit-button-text-color: #FFFFFF;
+  --theme-exit-button-text-hover-color: #FFFFFF;
+  --theme-exit-button-text-font-family: "Red Rose", serif;
+  --theme-exit-button-text-font-size: 24px;
+
+  --theme-pop-up-button-color: #66CFBC;
+  --theme-pop-up-button-border: none;
+  --theme-pop-up-button-radius: 0px;
+  --theme-pop-up-button-padding: 16px 24px 16px 24px;
+  --theme-pop-up-button-hover-color: #66CFBCB2;
+  --theme-pop-up-button-hover-border: inset 0 0 0 3px #3ABCA4;
+  --theme-pop-up-button-hover-shadow: 0px 0px 0px 0px #00000000;
+
+  --theme-pop-up-button-text-color: #FFFFFF;
+  --theme-pop-up-button-text-hover-color: #FFFFFF;
+  --theme-pop-up-button-text-font-family: "Red Rose", serif;
+  --theme-pop-up-button-text-font-size: 20px;
+  
+}
