@@ -4,27 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Let`s Play Memory</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/favicon/android-chrome-512x512.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      size="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      sizes="any"
+      href="/assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
     <script type="module" src="/src/main.ts" defer></script>
     <link rel="stylesheet" href="src/main.scss" />
   </head>
   <body>
-    <header></header>
     <main>
-      <p>It's play time.</p>
-      <h1>Ready to play?</h1>
-      <div class="button-container">
-        <button class="btn">
-          <img
-            class="btn__img__primary"
-            src="/assets/imgs/stadia-controller.svg"
-            alt=""
-          /><span class="btn__text">Play</span
-          ><img
-            class="btn__img__secondary"
-            src="/assets/imgs/arrow.svg"
-            alt="arrow"
-          />
-        </button>
+      <div class="main-container">
+        <p>It's play time.</p>
+        <h1>Ready to play?</h1>
+        <div class="button-container">
+          <button class="btn">
+            <img
+              class="btn__img__primary"
+              src="/assets/imgs/stadia-controller.svg"
+              alt=""
+            /><span class="btn__text">Play</span
+            ><img
+              class="btn__img__secondary"
+              src="/assets/imgs/arrow.svg"
+              alt="arrow"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="controller-container">
+        <img
+          class="controller-container__img"
+          src="/assets/imgs/stadia-controller-large.svg"
+          alt="Stadia Controller Large"
+        />
       </div>
     </main>
     <footer></footer>
