@@ -1,0 +1,52 @@
+@use "../components/main" as mix;
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: mix.$gray;
+}
+
+main {
+  @include mix.flex-center;
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  color: mix.$white;
+  max-width: 1440px;
+}
+
+.main-container {
+  @include mix.flex-center($disp: inline-grid, $direction: column);
+  grid-template-columns: max-content;
+  gap: 16px;
+}
+
+.button-container {
+  @include mix.flex-center;
+}
+
+h1 {
+  font-family: mix.$font-heading;
+  font-weight: 700;
+  font-size: mix.$size-heading-xl;
+}
+
+p {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-family: mix.$font-body;
+  font-size: mix.$size-body-lg;
+  font-weight: 400;
+}
+
+.controller-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  width: 100%;
+  z-index: -1;
+}
