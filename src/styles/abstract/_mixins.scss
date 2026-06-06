@@ -1,5 +1,5 @@
 @mixin flex-center($disp: flex, $direction: column) {
-  display: flex;
+  display: $disp;
   justify-content: center;
   align-items: center;
   flex-direction: $direction;
@@ -8,4 +8,16 @@
 @mixin size($width, $height) {
   width: $width;
   height: $height;
+}
+
+@mixin stack($gap, $align: null, $justify: null) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  @if $align != null {
+    align-items: $align;
+  }
+  @if $justify != null {
+    justify-content: $justify;
+  }
 }
