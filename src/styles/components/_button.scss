@@ -12,6 +12,20 @@
 	transition: transform var.$duration-fast var.$ease-standard;
 }
 
+.sm-btn {
+	@include mix.flex-center($direction: row);
+	border: none;
+	background-color: var.$yellow;
+	padding: var.$space-sm-button-y var.$space-sm-button-x;
+	gap: var.$space-sm-button-gap;
+	cursor: pointer;
+	transition: transform var.$duration-fast var.$ease-standard;
+}
+
+.sm-btn:hover {
+	transform: scale(1.05);
+}
+
 .btn:hover {
 	transform: scale(1.05);
 }

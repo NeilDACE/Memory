@@ -2,11 +2,23 @@
 
 body {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
   height: 100dvh;
   background-color: mix.$white;
   padding: 100px 170px;
+}
+
+h2 {
+  font-family: "almarai", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--gray);
+}
+
+li {
+  font-family: "almarai", sans-serif;
+  font-size: 20px;
+  color: var(--gray);
 }
 
 .settings-title {
@@ -39,4 +51,121 @@ body {
   transform: rotate(45deg); 
   transform-origin: center;
   margin-left: -8px;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 64px;
+}
+
+.settings-container {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.settings-section__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-section__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type="radio"] {
+  display: none; 
+}
+
+.radio-box {
+  width: 20px;
+  height: 20px;
+  border: 4px solid mix.$gray;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: mix.$gray;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+  }
+}
+
+input[type="radio"]:checked {
+  & + .radio-box {
+    border: 3px solid mix.$gray;
+    &::after {
+      background-color: mix.$gray;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.showcase-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  background-color: mix.$light-gray;
+  gap: 16px;
+}
+
+.showcase-section__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showcase-section__text {
+  font-family: mix.$font-body;
+  font-size: 20px;
+  color: var(--gray);
+}
+
+.showcase-section__btn__text {
+  font-family: mix.$font-heading;
+  font-size: mix.$size-button-text-sm;
+  font-weight: bold;
+  color: var(--gray);
+}
+
+.showcase-section__divider {
+  width: 56px;
+  height: 8px;
+  background-color: mix.$yellow;
+  transform: rotate(109deg);
 }

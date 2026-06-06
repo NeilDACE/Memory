@@ -47,25 +47,165 @@
     <main class="settings-container">
       <h1 class="settings-title">Settings</h1>
       <div class="settings-content">
-        <div class="left-container"></div>
+        <div class="left-container">
+          <section class="settings-section">
+            <h2 class="settings-section__title">
+              <img
+                src="/public/assets/imgs/palette.svg"
+                alt="Palette icon"
+              />Game themes
+            </h2>
+            <ul class="settings-section__options">
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="theme"
+                    value="code"
+                    checked
+                  />
+                  <span class="radio-box"></span>
+                  Code vibes theme
+                </label>
+              </li>
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="theme"
+                    value="gaming"
+                  />
+                  <span class="radio-box"></span>
+                  Gaming theme
+                </label>
+              </li>
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="theme"
+                    value="da-projects"
+                  />
+                  <span class="radio-box"></span>
+                  DA Projects theme
+                </label>
+              </li>
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="theme"
+                    value="foods"
+                  />
+                  <span class="radio-box"></span>
+                  Foods theme
+                </label>
+              </li>
+            </ul>
+          </section>
+          <section class="settings-section">
+            <h2 class="settings-section__title">
+              <img
+                src="/public/assets/imgs/chess_pawn.svg"
+                alt="Chess pawn icon"
+              />Choose player
+            </h2>
+            <ul class="settings-section__options">
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="player"
+                    value="blue"
+                  />
+                  <span class="radio-box"></span>
+                  Blue
+                </label>
+              </li>
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="player"
+                    value="orange"
+                  />
+                  <span class="radio-box"></span>
+                  Orange
+                </label>
+              </li>
+            </ul>
+          </section>
+          <section class="settings-section">
+            <h2 class="settings-section__title">
+              <img src="/public/assets/imgs/style.svg" alt="Style icon" />Board
+              size
+            </h2>
+            <ul class="settings-section__options">
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="size"
+                    value="16"
+                  />
+                  <span class="radio-box"></span>
+                  16 cards
+                </label>
+              </li>
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="size"
+                    value="24"
+                  />
+                  <span class="radio-box"></span>
+                  24 cards
+                </label>
+              </li>
+              <li class="settings-section__option">
+                <label>
+                  <input
+                    class="settings-section__option__input"
+                    type="radio"
+                    name="size"
+                    value="36"
+                  />
+                  <span class="radio-box"></span>
+                  36 cards
+                </label>
+              </li>
+            </ul>
+          </section>
+        </div>
         <div class="right-container">
           <img
             class="settings-image"
             src="/public/assets/imgs/themes/code-vibe-theme/theme-visual.svg"
             alt="visual representation of the code vibe theme"
           />
-          <section class="settings-section">
-            <p>Theme</p>
-            <div class="settings-section__divider"></div>
-            <p>Player</p>
-            <div class="settings-section__divider"></div>
-            <p>Board-16 Cards</p>
-            <button class="btn settings-section__btn">
+          <section class="showcase-section">
+            <div class="showcase-section__content">
+              <p class="showcase-section__text">Game Theme</p>
+              <div class="showcase-section__divider"></div>
+              <p class="showcase-section__text">Player</p>
+              <div class="showcase-section__divider"></div>
+              <p class="showcase-section__text">Board Size</p>
+            </div>
+            <button class="sm-btn showcase-section__btn">
               <img
-                class="settings-section__btn__img"
+                class="showcase-section__btn__img"
                 src="/public/assets/imgs/smart-display.svg"
                 alt="play icon"
-              /><span class="settings-section__btn__text">Play</span>
+              /><span class="showcase-section__btn__text">Start</span>
             </button>
           </section>
         </div>
