@@ -1,0 +1,42 @@
+@use "../components/main" as mix;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100dvh;
+  background-color: mix.$white;
+  padding: 100px 170px;
+}
+
+.settings-title {
+  position: relative;
+  font-family: mix.$font-heading;
+  font-size: mix.$size-heading-lgr;
+  color: var(--gray);
+  display: inline-block;
+  padding: 12px;
+}
+
+.settings-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: mix.$yellow;
+}
+
+.settings-title::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-color: mix.$yellow;
+  transform: rotate(45deg); 
+  transform-origin: center;
+  margin-left: -8px;
+}

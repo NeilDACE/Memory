@@ -8,37 +8,68 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/imgs/favicon/favicon-16x16.png"
+      href="/assets/favicon/favicon-16x16.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/imgs/favicon/favicon-32x32.png"
+      href="/assets/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="assets/imgs/favicon/android-chrome-192x192.png"
+      href="/assets/favicon/android-chrome-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="512x512"
-      href="assets/imgs/favicon/android-chrome-512x512.png"
+      href="/assets/favicon/android-chrome-512x512.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="assets/imgs/favicon/apple-touch-icon.png"
+      href="/assets/favicon/apple-touch-icon.png"
     />
     <link
       rel="shortcut icon"
       sizes="any"
-      href="assets/imgs/favicon/favicon.ico"
+      href="/assets/favicon/favicon.ico"
       type="image/x-icon"
     />
+    <script type="module" src="/src/main.ts" defer></script>
+    <link rel="stylesheet" href="/src/main.scss" />
+    <link rel="stylesheet" href="/src/styles/pages/settings.scss" />
   </head>
-  <body></body>
+  <body>
+    <main class="settings-container">
+      <h1 class="settings-title">Settings</h1>
+      <div class="settings-content">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <img
+            class="settings-image"
+            src="/public/assets/imgs/themes/code-vibe-theme/theme-visual.svg"
+            alt="visual representation of the code vibe theme"
+          />
+          <section class="settings-section">
+            <p>Theme</p>
+            <div class="settings-section__divider"></div>
+            <p>Player</p>
+            <div class="settings-section__divider"></div>
+            <p>Board-16 Cards</p>
+            <button class="btn settings-section__btn">
+              <img
+                class="settings-section__btn__img"
+                src="/public/assets/imgs/smart-display.svg"
+                alt="play icon"
+              /><span class="settings-section__btn__text">Play</span>
+            </button>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
