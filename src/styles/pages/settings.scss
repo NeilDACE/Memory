@@ -81,6 +81,42 @@ li {
   @include mix.stack(12px);
 }
 
+.settings-section__option:has(input[type="radio"]:checked) {
+  font-weight: bold;
+}
+
+.settings-section__option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.selected-marker {
+  display: none;
+  position: relative;
+  width: 41px;
+  height: 3px;
+  background-color: mix.$yellow;
+}
+
+input[type="radio"]:checked ~ .selected-marker {
+  display: block;
+}
+
+.selected-marker::after {
+  content: "";
+  position: absolute;
+  bottom: -4.5px;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: mix.$yellow;
+  transform: rotate(45deg); 
+  transform-origin: center;
+  margin-left: -8px;
+}
+
 .settings-section__title {
   display: flex;
   align-items: center;
