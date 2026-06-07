@@ -21,3 +21,39 @@
     justify-content: $justify;
   }
 }
+
+@mixin diamond-marker(
+  $size,
+  $color,
+  $bottom,
+  $left: null,
+  $right: null,
+  $display: null,
+  $margin-left: null
+) {
+  @if $display != null {
+    display: $display;
+  }
+
+  content: "";
+  position: absolute;
+  bottom: $bottom;
+
+  @if $left != null {
+    left: $left;
+  }
+
+  @if $right != null {
+    right: $right;
+  }
+
+  width: $size;
+  height: $size;
+  background-color: $color;
+  transform: rotate(45deg);
+  transform-origin: center;
+
+  @if $margin-left != null {
+    margin-left: $margin-left;
+  }
+}
