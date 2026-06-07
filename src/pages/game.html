@@ -39,6 +39,47 @@
       href="/assets/favicon/favicon.ico"
       type="image/x-icon"
     />
+    <script type="module" src="/src/main.ts" defer></script>
+    <link rel="stylesheet" href="/src/main.scss" />
+    <link rel="stylesheet" href="/src/styles/pages/game.scss" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="game-header">
+        <div class="game-feedback">
+          <section class="points-container">
+            <div class="points-container__team-1">
+              <img
+                class="points-container__team-1__icon"
+                src="/public/assets/imgs/themes/code-vibe-theme/team-1-icon.svg"
+                alt="Team 1 icon"
+              />
+              <span class="points-container__team-1__score">0</span>
+            </div>
+            <div class="points-container__team-2">
+              <img
+                class="points-container__team-2__icon"
+                src="/public/assets/imgs/themes/code-vibe-theme/team-2-icon.svg"
+                alt="Team 2 icon"
+              />
+              <span class="points-container__team-2__score">0</span>
+            </div>
+          </section>
+          <section class="turn-indicator">
+            <span class="turn-indicator__text">Current Player:</span>
+            <img
+              class="turn-indicator__icon"
+              src="/public/assets/imgs/themes/code-vibe-theme/current-player-icon.svg"
+              alt="Current team icon"
+            />
+          </section>
+        </div>
+        <button class="game-header__btn">
+          <img src="/assets/imgs/gear.svg" alt="Settings icon" />
+          <span class="game-header__btn__text">Exit game</span>
+        </button>
+      </div>
+    </header>
+    <main class="game-container"></main>
+  </body>
 </html>
