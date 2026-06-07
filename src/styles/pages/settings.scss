@@ -145,6 +145,18 @@ input[type="radio"]:checked ~ .selected-marker {
   color: var(--gray);
 }
 
+.showcase-section__btn.unselect {
+  background-color: #DBDBD6;
+
+  & .showcase-section__btn__text {
+    color: #A3A1A1;
+  }
+
+  & .showcase-section__btn__img {
+    opacity: 0.33;
+  }
+}
+
 .showcase-section__divider {
   position: relative;
   width: 56px;
