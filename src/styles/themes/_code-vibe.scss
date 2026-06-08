@@ -1,6 +1,6 @@
 // Theme scaffold: code vibe
 [data-theme="code-vibe"] {
-  --theme-bg: linear-gradient(223.71deg, #303131 43.86%, #6D6D6D 122.2%);
+  --theme-bg: #303131;
   
   --theme-header-bg: #4DD5BC33;
   --theme-header-radius: 0px;
@@ -60,7 +60,7 @@
   --match-status-shadow: 6px 6px 8px 0px #4DD5BC4D;
 
   --theme-exit-button-color: #86E9D624;
-  --theme-exit-button-border: inset 0 0 0 2px #4DD5BC;
+  --theme-exit-button-border: inset 0 0 0 1px #4DD5BC;
   --theme-exit-button-radius: 0px;
   --theme-exit-button-padding: 16px 24px 16px 24px;
   --theme-exit-button-hover-color: #86E9D642;

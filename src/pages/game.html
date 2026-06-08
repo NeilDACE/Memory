@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/src/main.scss" />
     <link rel="stylesheet" href="/src/styles/pages/game.scss" />
   </head>
-  <body>
+  <body data-theme="code-vibe">
     <header>
       <div class="game-header">
         <div class="game-feedback">
@@ -62,7 +62,7 @@
                 src="/public/assets/imgs/themes/code-vibe-theme/team-2-icon.svg"
                 alt="Team 2 icon"
               />
-              <span class="points-container__team-2__score">0</span>
+              <span class="points-container__team-2__score">6</span>
             </div>
           </section>
           <section class="turn-indicator">
@@ -75,7 +75,11 @@
           </section>
         </div>
         <button class="game-header__btn">
-          <img src="/assets/imgs/gear.svg" alt="Settings icon" />
+          <img
+            class="game-header__btn__icon"
+            src="/public/assets/imgs/move_item.svg"
+            alt="Settings icon"
+          />
           <span class="game-header__btn__text">Exit game</span>
         </button>
       </div>
