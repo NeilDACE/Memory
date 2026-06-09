@@ -1,0 +1,35 @@
+@use "../themes/code-vibe";
+@use "../themes/foods";
+@use "../themes/game";
+@use "../themes/projects";
+
+.card {
+  height: 120px;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: none;
+  &__inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all 300ms ease-in-out;
+    transform-style: preserve-3d;
+  }
+  &__face{
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    backface-visibility: hidden;
+    box-shadow:
+      var(--theme-card-border-radius),
+      var(--theme-card-shadow);
+    border-radius: var(--theme-card-border-radius);
+    &--back{
+      transform: rotateY(180deg);
+      background-color: red;
+    }
+  }
+  &.is-flipped .card__inner{
+    transform: rotateY(180deg);
+  }
+}
