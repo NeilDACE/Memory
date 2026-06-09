@@ -3,7 +3,7 @@ export function createCard(
   currentCardBacksideSrc: string,
   currentCardFrontsideSrc: string
 ): string {
-  return `<button class="card card--${cardIndex}">
+  return `<button class="card card--${cardIndex}" data-front-src="${currentCardFrontsideSrc}">
           <div class="card__inner">
             <div class="card__face">
               <img

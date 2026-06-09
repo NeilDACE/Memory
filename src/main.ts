@@ -5,6 +5,9 @@ let boardSize: number[] = [16, 24, 36];
 let currentBoardSize: number = boardSize[0];
 let currentCardBacksideSrc: string = "";
 let currentCardFrontsideSrc: string = "";
+let currentPlayer: number = 1;
+let currentDraw: HTMLButtonElement[] = [];
+let isResolvingDraw: boolean = false;
 
 init();
 
@@ -31,34 +34,104 @@ function applyCurrentThemeFromBodyData(): void {
 function updateGameFeedbackIconSourcesByCurrentTheme(): void {
   const teamOneIconRef = document.getElementById("team-1-icon") as HTMLImageElement | null;
   const teamTwoIconRef = document.getElementById("team-2-icon") as HTMLImageElement | null;
-  const currentPlayerIconRef = document.getElementById("current-player-icon") as HTMLImageElement | null;
   if (teamOneIconRef) {
     teamOneIconRef.src = `/public/assets/imgs/themes/${currentTheme}/team-1-icon.svg`;
   }
   if (teamTwoIconRef) {
     teamTwoIconRef.src = `/public/assets/imgs/themes/${currentTheme}/team-2-icon.svg`;
   }
+}
+
+function updateCurrentPlayerIndicator(): void {
+  const currentPlayerIconRef = document.getElementById("current-player-icon") as HTMLImageElement | null;
   if (currentPlayerIconRef) {
-    currentPlayerIconRef.src = `/public/assets/imgs/themes/${currentTheme}/current-player-icon.svg`;
+    currentPlayerIconRef.src = `/public/assets/imgs/themes/${currentTheme}/current-player-icon-player-${currentPlayer}.svg`;
+  }
+}
+
+function switchCurrentPlayer(): void {
+  currentPlayer = currentPlayer === 1 ? 2 : 1;
+  updateCurrentPlayerIndicator();
+}
+
+function resetTurnStateForNewGame(): void {
+  currentPlayer = 1;
+  currentDraw = [];
+  isResolvingDraw = false;
+  updateCurrentPlayerIndicator();
+}
+
+function areDrawnCardsMatching(firstCard: HTMLButtonElement, secondCard: HTMLButtonElement): boolean {
+  return firstCard.dataset.frontSrc === secondCard.dataset.frontSrc;
+}
+
+function markCardsAsMatched(firstCard: HTMLButtonElement, secondCard: HTMLButtonElement): void {
+  firstCard.dataset.matched = "true";
+  secondCard.dataset.matched = "true";
+}
+
+function resolveCurrentDraw(): void {
+  if (currentDraw.length < 2) {
+    return;
+  }
+  const [firstCard, secondCard] = currentDraw;
+  if (areDrawnCardsMatching(firstCard, secondCard)) {
+    markCardsAsMatched(firstCard, secondCard);
+    updateScore(currentPlayer, parseInt(document.getElementById(`team-${currentPlayer}-score`)?.textContent || "0") + 1);
+    currentDraw = [];
+    isResolvingDraw = false;
+    return;
+  }
+  window.setTimeout(() => {
+    firstCard.classList.remove("is-flipped");
+    secondCard.classList.remove("is-flipped");
+    currentDraw = [];
+    isResolvingDraw = false;
+    switchCurrentPlayer();
+  }, 650);
+}
+
+function updateScore(team: number, points: number): void {
+  const scoreRef = document.getElementById(`team-${team}-score`) as HTMLSpanElement | null;
+  if (scoreRef) {
+    scoreRef.textContent = String(points);
+  }
+}
+
+function handleCardClick(card: HTMLButtonElement): void {
+  if (
+    isResolvingDraw ||
+    card.classList.contains("is-flipped") ||
+    card.dataset.matched === "true"
+  ) {
+    return;
+  }
+  card.classList.add("is-flipped");
+  currentDraw.push(card);
+  if (currentDraw.length === 2) {
+    isResolvingDraw = true;
+    resolveCurrentDraw();
   }
 }
 
 function initializeThemeLoading(): void {
   applyCurrentThemeFromBodyData();
   updateGameFeedbackIconSourcesByCurrentTheme();
+  updateCurrentPlayerIndicator();
 }
 
 function init() {
   initializeThemeLoading();
   const fieldRef = document.getElementById("field");
   if (fieldRef){
+    resetTurnStateForNewGame();
     applyInitialFieldSizeClass(fieldRef, currentBoardSize);
     fieldRef.innerHTML = "";
     fieldRef.innerHTML = createCards(currentBoardSize);
     fieldRef.addEventListener("click", (event) => {
       const card = (event.target as HTMLElement).closest(".card") as HTMLButtonElement;
       if (card) {
-        card.classList.toggle("is-flipped");
+        handleCardClick(card);
       }
     });
   }
@@ -105,3 +178,4 @@ function createCards( amount: number ): string {
   }
   return cards;
 }
+
