@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/src/main.scss" />
     <link rel="stylesheet" href="/src/styles/pages/settings.scss" />
   </head>
-  <body>
+  <body onload="initializeSettings()">
     <main class="settings-container">
       <h1 class="settings-title">Settings</h1>
       <div class="settings-content">
@@ -57,7 +57,7 @@
             </h2>
             <ul class="settings-section__options">
               <li class="settings-section__option">
-                <label data-theme="code-vibe">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -71,7 +71,7 @@
                 </label>
               </li>
               <li class="settings-section__option">
-                <label data-theme="gaming">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -84,7 +84,7 @@
                 </label>
               </li>
               <li class="settings-section__option">
-                <label data-theme="da-projects">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -97,7 +97,7 @@
                 </label>
               </li>
               <li class="settings-section__option">
-                <label data-theme="foods">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -120,7 +120,7 @@
             </h2>
             <ul class="settings-section__options">
               <li class="settings-section__option">
-                <label data-player="blue">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -133,7 +133,7 @@
                 </label>
               </li>
               <li class="settings-section__option">
-                <label data-player="orange">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -154,7 +154,7 @@
             </h2>
             <ul class="settings-section__options">
               <li class="settings-section__option">
-                <label data-size="16">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -167,7 +167,7 @@
                 </label>
               </li>
               <li class="settings-section__option">
-                <label data-size="24">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"
@@ -180,7 +180,7 @@
                 </label>
               </li>
               <li class="settings-section__option">
-                <label data-size="36">
+                <label>
                   <input
                     class="settings-section__option__input"
                     type="radio"

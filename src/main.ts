@@ -10,6 +10,45 @@ let currentDraw: HTMLButtonElement[] = [];
 let isResolvingDraw: boolean = false;
 
 init();
+initializeSettings();
+
+interface Settings {
+  theme: "code-vibe" | "gaming" | "da-projects" | "foods";
+  player: "blue" | "orange";
+  size: "16" | "24" | "36";
+}
+
+const STORAGE_KEY = "memory-settings";
+
+function initializeSettings() {
+  bindSettingsRadios();
+}
+
+function loadSettings(): Partial<Settings> {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return {};
+  try {
+    return { ...JSON.parse(raw) };
+  } catch {
+    return {};
+  }
+}
+
+function saveSettings(next: Partial<Settings>) {
+  const current = loadSettings();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...current, ...next }));
+}
+
+function bindSettingsRadios() {
+  document.addEventListener("change", (e) => {
+    const target = e.target as HTMLInputElement;
+    if (!target.matches('input[type="radio"]')) return;
+
+    if (target.name === "theme") saveSettings({ theme: target.value as Settings["theme"] });
+    if (target.name === "player") saveSettings({ player: target.value as Settings["player"] });
+    if (target.name === "size") saveSettings({ size: target.value as Settings["size"] });
+  });
+}
 
 function applyInitialFieldSizeClass(fieldRef: HTMLElement, boardSize: number): void {
   fieldRef.classList.remove("game-field--sm");
