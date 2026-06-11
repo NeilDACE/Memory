@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/src/main.scss" />
     <link rel="stylesheet" href="/src/styles/pages/game.scss" />
   </head>
-  <body data-theme="code-vibe">
+  <body data-theme="code-vibe" id="game-page">
     <header>
       <div class="game-header">
         <div class="game-feedback">
@@ -99,7 +99,7 @@
         aria-labelledby="exit-dialog-title"
         aria-modal="true"
       >
-        <div class="exit-dialog__panel">
+        <div class="exit-dialog__panel" id="exit-dialog-panel">
           <p class="exit-dialog__text" id="exit-dialog-title">
             Are you sure you want to quit<br />the game?
           </p>
@@ -111,14 +111,73 @@
             >
               Back to game
             </button>
-            <button
-              type="button"
+            <a
               id="confirm-exit"
               class="exit-dialog__button exit-dialog__button--confirm"
+              href="/index.html"
             >
               Exit game
-            </button>
+            </a>
           </div>
+        </div>
+      </dialog>
+      <dialog
+        class="finished-game-dialog"
+        id="finished-game-dialog"
+        aria-labelledby="finished-game-dialog-title"
+        aria-modal="true"
+        close
+      >
+        <div class="finished-game-dialog__panel">
+          <div class="win-status-container">
+            <p
+              class="finished-game-dialog__text"
+              id="finished-game-dialog-title"
+            >
+              The winner is<br />
+              <span class="finished-game-dialog__winner" id="winner-text"
+                >Orange Player</span
+              >
+            </p>
+            <section class="points-container margin-top-24">
+              <div class="points-container__team-1">
+                <img
+                  class="points-container__team-1__icon"
+                  src="/public/assets/imgs/themes/code-vibe-theme/team-1-icon.svg"
+                  alt="Team 1 icon"
+                />
+                <span
+                  id="team-1-finished-score"
+                  class="points-container__team-1__score"
+                  >0</span
+                >
+              </div>
+              <div class="points-container__team-2">
+                <img
+                  class="points-container__team-2__icon"
+                  src="/public/assets/imgs/themes/code-vibe-theme/team-2-icon.svg"
+                  alt="Team 2 icon"
+                />
+                <span
+                  id="team-2-finished-score"
+                  class="points-container__team-2__score"
+                  >0</span
+                >
+              </div>
+            </section>
+          </div>
+          <img
+            src="/public/assets/imgs/themes/code-vibe-theme/winner.svg"
+            alt="winner icon"
+            class="finished-game-dialog__winner-icon"
+          />
+          <a
+            id="play-again"
+            class="finished-game-dialog__button"
+            href="/index.html"
+          >
+            Back to start
+          </a>
         </div>
       </dialog>
     </main>

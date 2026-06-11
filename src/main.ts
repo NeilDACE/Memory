@@ -125,12 +125,23 @@ function initializeExitDialog(): void {
   const exitDialogRef = document.getElementById("exit-dialog") as HTMLDialogElement | null;
   const confirmExitButtonRef = document.getElementById("confirm-exit") as HTMLButtonElement | null;
   const cancelExitButtonRef = document.getElementById("cancel-exit") as HTMLButtonElement | null;
+  const exitDialogPanelRef = document.getElementById("exit-dialog-panel") as HTMLDivElement | null;
   if (!openExitDialogButtonRef || !exitDialogRef || !confirmExitButtonRef || !cancelExitButtonRef) {
     return;
+  }
+  if (exitDialogPanelRef) {
+    exitDialogPanelRef.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
   }
   openExitDialogButtonRef.addEventListener("click", () => {
     if (!exitDialogRef.open) {
       exitDialogRef.showModal();
+    }
+  });
+  exitDialogRef.addEventListener("click", (event) => {
+    if (event.target === exitDialogRef) {
+      exitDialogRef.close("backdrop");
     }
   });
   cancelExitButtonRef.addEventListener("click", () => {

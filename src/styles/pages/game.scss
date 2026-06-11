@@ -188,3 +188,72 @@ body {
 .exit-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.finished-game-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  padding: 0;
+  background: transparent;
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    }
+  &__text {
+    font-family: var(--theme-winner-text-font-family);
+    color: var(--theme-winner-text-color);
+    font-size: var(--theme-winner-text-size);
+    text-align: center;
+  }
+  &__winner {
+    font-family: var(--theme-winner-headline-font-family);
+    color: var(--theme-winner-headline-color);
+    font-size: var(--theme-winner-headline-size);
+    font-weight: bold;
+  }
+  &__button {
+    font-family: var(--theme-exit-button-text-font-family);
+    font-size: var(--theme-exit-button-text-font-size);
+    font-weight: bold;
+    background-color: var(--theme-exit-button-color);
+    border: none;
+    box-shadow: var(--theme-exit-button-border);
+    border-radius: var(--theme-exit-button-radius);
+    padding: var(--theme-exit-button-padding);
+    color: var(--theme-exit-button-text-color);
+    &:hover {
+      background-color: var(--theme-exit-button-hover-color);
+      box-shadow:
+        var(--theme-exit-button-hover-border),
+        var(--theme-exit-button-hover-shadow);
+    }
+  }
+}
+
+.finished-game-dialog::backdrop {
+  background-color: var(--theme-winner-bg);
+}
+
+// Temporär für Design-Vorschau mit dem open-Attribut:
+.finished-game-dialog[open]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: var(--theme-winner-bg);
+  z-index: -1;
+}
+
+.margin-top-24 {
+  margin-top: 24px;
+}
+
+.win-status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
