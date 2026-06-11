@@ -78,6 +78,7 @@ function resolveCurrentDraw(): void {
   if (areDrawnCardsMatching(firstCard, secondCard)) {
     markCardsAsMatched(firstCard, secondCard);
     updateScore(currentPlayer, parseInt(document.getElementById(`team-${currentPlayer}-score`)?.textContent || "0") + 1);
+    checkForGameEnd();
     currentDraw = [];
     isResolvingDraw = false;
     return;
@@ -96,6 +97,89 @@ function updateScore(team: number, points: number): void {
   if (scoreRef) {
     scoreRef.textContent = String(points);
   }
+}
+
+interface GameDialogElements {
+  dialog: HTMLDialogElement | null;
+  teamOneIcon: HTMLImageElement | null;
+  teamTwoIcon: HTMLImageElement | null;
+  winnerIcon: HTMLImageElement | null;
+  winnerText: HTMLSpanElement | null;
+  title: HTMLParagraphElement | null;
+  teamOneScore: HTMLSpanElement | null;
+  teamTwoScore: HTMLSpanElement | null;
+}
+interface TeamScores {
+  teamOne: number;
+  teamTwo: number;
+}
+interface WinnerInfo {
+  name: string;
+  cssClass: string;
+  icon: string;
+}
+
+function getTeamScores(): TeamScores {
+  const teamOne = parseInt(document.getElementById("team-1-score")?.textContent || "0");
+  const teamTwo = parseInt(document.getElementById("team-2-score")?.textContent || "0");
+  return { teamOne, teamTwo };
+}
+
+function getGameDialogElements(): GameDialogElements {
+  const dialog = document.getElementById("finished-game-dialog") as HTMLDialogElement | null;
+  return {
+    dialog,
+    teamOneIcon: dialog?.querySelector(".points-container__team-1__icon") as HTMLImageElement | null,
+    teamTwoIcon: dialog?.querySelector(".points-container__team-2__icon") as HTMLImageElement | null,
+    winnerIcon: document.getElementById("winner-icon") as HTMLImageElement | null,
+    winnerText: document.getElementById("winner-text") as HTMLSpanElement | null,
+    title: document.getElementById("finished-game-dialog-title") as HTMLParagraphElement | null,
+    teamOneScore: document.getElementById("team-1-finished-score") as HTMLSpanElement | null,
+    teamTwoScore: document.getElementById("team-2-finished-score") as HTMLSpanElement | null,
+  };
+}
+
+function setTeamIcons(teamOneIcon: HTMLImageElement | null, teamTwoIcon: HTMLImageElement | null): void {
+  if (teamOneIcon) teamOneIcon.src = `/public/assets/imgs/themes/${currentTheme}/team-1-icon.svg`;
+  if (teamTwoIcon) teamTwoIcon.src = `/public/assets/imgs/themes/${currentTheme}/team-2-icon.svg`;
+}
+
+function getWinnerInfo(teamOneScore: number, teamTwoScore: number): WinnerInfo {
+  const baseImagePath = `/public/assets/imgs/themes/${currentTheme}`;
+  if (teamOneScore > teamTwoScore) {
+    return { name: "Blue player", cssClass: "blue-text", icon: `${baseImagePath}/winner-blue-player.svg` };
+  }
+  if (teamTwoScore > teamOneScore) {
+    return { name: "Orange player", cssClass: "orange-text", icon: `${baseImagePath}/winner-orange-player.svg` };
+  }
+  return { name: "It's a", cssClass: "", icon: `${baseImagePath}/draw.svg` };
+}
+
+function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo): void {
+  if (elements.winnerText) {
+    elements.winnerText.textContent = winnerInfo.name;
+    if (winnerInfo.cssClass) elements.winnerText.classList.add(winnerInfo.cssClass);
+  }
+  if (elements.winnerIcon) elements.winnerIcon.src = winnerInfo.icon;
+  if (winnerInfo.name === "It's a" && elements.title) elements.title.innerHTML = `It's a`;
+}
+
+function displayFinalScores(elements: GameDialogElements, scores: TeamScores): void {
+  if (elements.teamOneScore) elements.teamOneScore.textContent = String(scores.teamOne);
+  if (elements.teamTwoScore) elements.teamTwoScore.textContent = String(scores.teamTwo);
+}
+
+function checkForGameEnd(): void {
+  const totalPairs = currentBoardSize / 2;
+  const scores = getTeamScores();
+  if (scores.teamOne + scores.teamTwo !== totalPairs) return;
+  const elements = getGameDialogElements();
+  if (!elements.dialog || !elements.winnerText || !elements.title || !elements.teamOneScore || !elements.teamTwoScore) return;
+  setTeamIcons(elements.teamOneIcon, elements.teamTwoIcon);
+  const winnerInfo = getWinnerInfo(scores.teamOne, scores.teamTwo);
+  displayWinnerInfo(elements, winnerInfo);
+  displayFinalScores(elements, scores);
+  elements.dialog.showModal();
 }
 
 function handleCardClick(card: HTMLButtonElement): void {
