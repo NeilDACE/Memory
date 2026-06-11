@@ -81,7 +81,7 @@
             />
           </section>
         </div>
-        <button class="game-header__btn">
+        <button class="game-header__btn" id="open-exit-dialog" type="button">
           <img
             class="game-header__btn__icon"
             src="/public/assets/imgs/move_item.svg"
@@ -93,6 +93,34 @@
     </header>
     <main class="game-container">
       <section class="game-field" id="field"></section>
+      <dialog
+        class="exit-dialog"
+        id="exit-dialog"
+        aria-labelledby="exit-dialog-title"
+        aria-modal="true"
+      >
+        <div class="exit-dialog__panel">
+          <p class="exit-dialog__text" id="exit-dialog-title">
+            Are you sure you want to quit<br />the game?
+          </p>
+          <div class="exit-dialog__buttons-container">
+            <button
+              type="button"
+              id="cancel-exit"
+              class="exit-dialog__button exit-dialog__button--cancel"
+            >
+              Back to game
+            </button>
+            <button
+              type="button"
+              id="confirm-exit"
+              class="exit-dialog__button exit-dialog__button--confirm"
+            >
+              Exit game
+            </button>
+          </div>
+        </div>
+      </dialog>
     </main>
   </body>
 </html>

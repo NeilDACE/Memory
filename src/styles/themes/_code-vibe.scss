@@ -50,7 +50,7 @@
   --match-status-shadow: 6px 6px 8px 0px #4DD5BC4D;
 
   --theme-exit-button-color: #86E9D624;
-  --theme-exit-button-border: inset 0 0 0 1px #4DD5BC;
+  --theme-exit-button-border: inset 0 0 0 2px #4DD5BC;
   --theme-exit-button-radius: 0px;
   --theme-exit-button-padding: 16px 24px 16px 24px;
   --theme-exit-button-hover-color: #86E9D642;
@@ -72,10 +72,11 @@
   --theme-pop-up-button-radius: 0px;
   --theme-pop-up-button-padding: 16px 24px 16px 24px;
   --theme-pop-up-button-hover-color: #66CFBCB2;
-  --theme-pop-up-button-hover-border: inset 0 0 0 3px #3ABCA4;
+  --theme-pop-up-button-hover-border: inset 0 0 0 3px #4DD5BC;
   --theme-pop-up-button-hover-shadow: 0px 0px 0px 0px #00000000;
 
   --theme-pop-up-button-text-color: #FFFFFF;
+  --theme-pop-up-button-text-exit-color: #4DD5BC;
   --theme-pop-up-button-text-hover-color: #FFFFFF;
   --theme-pop-up-button-text-font-family: "Red Rose", serif;
   --theme-pop-up-button-text-font-size: 20px;

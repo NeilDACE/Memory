@@ -120,8 +120,30 @@ function initializeThemeLoading(): void {
   updateCurrentPlayerIndicator();
 }
 
+function initializeExitDialog(): void {
+  const openExitDialogButtonRef = document.getElementById("open-exit-dialog") as HTMLButtonElement | null;
+  const exitDialogRef = document.getElementById("exit-dialog") as HTMLDialogElement | null;
+  const confirmExitButtonRef = document.getElementById("confirm-exit") as HTMLButtonElement | null;
+  const cancelExitButtonRef = document.getElementById("cancel-exit") as HTMLButtonElement | null;
+  if (!openExitDialogButtonRef || !exitDialogRef || !confirmExitButtonRef || !cancelExitButtonRef) {
+    return;
+  }
+  openExitDialogButtonRef.addEventListener("click", () => {
+    if (!exitDialogRef.open) {
+      exitDialogRef.showModal();
+    }
+  });
+  cancelExitButtonRef.addEventListener("click", () => {
+    exitDialogRef.close("cancel");
+  });
+  confirmExitButtonRef.addEventListener("click", () => {
+    exitDialogRef.close("confirm");
+  });
+}
+
 function init() {
   initializeThemeLoading();
+  initializeExitDialog();
   const fieldRef = document.getElementById("field");
   if (fieldRef){
     resetTurnStateForNewGame();
@@ -178,4 +200,6 @@ function createCards( amount: number ): string {
   }
   return cards;
 }
+
+
 
