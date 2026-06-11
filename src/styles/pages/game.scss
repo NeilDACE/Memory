@@ -35,10 +35,6 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
-    background: var(--theme-header-left-frame-icon-team-1);
-    &__icon {
-      background: var(--theme-header-left-frame-icon-team-1);
-    }
     &__score {
       font-family: var(--theme-header-left-frame-points-font-family);
       color: var(--theme-header-left-frame-points-team-1-color);
@@ -50,10 +46,6 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
-    background: var(--theme-header-left-frame-icon-team-2);
-    &__icon {
-      background: var(--theme-header-left-frame-icon-team-2);
-    }
     &__score {
       font-family: var(--theme-header-left-frame-points-font-family);
       color: var(--theme-header-left-frame-points-team-2-color);
