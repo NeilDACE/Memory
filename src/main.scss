@@ -1,11 +1,13 @@
-@use "./components/main";
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-main {
-  background-color: #978f22;
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }

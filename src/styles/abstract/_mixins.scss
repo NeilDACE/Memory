@@ -1,6 +1,59 @@
-@mixin flex-center($direction: column) {
-  display: flex;
+@mixin flex-center($disp: flex, $direction: column) {
+  display: $disp;
   justify-content: center;
   align-items: center;
   flex-direction: $direction;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin stack($gap, $align: null, $justify: null) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  @if $align != null {
+    align-items: $align;
+  }
+  @if $justify != null {
+    justify-content: $justify;
+  }
+}
+
+@mixin diamond-marker(
+  $size,
+  $color,
+  $bottom,
+  $left: null,
+  $right: null,
+  $display: null,
+  $margin-left: null
+) {
+  @if $display != null {
+    display: $display;
+  }
+
+  content: "";
+  position: absolute;
+  bottom: $bottom;
+
+  @if $left != null {
+    left: $left;
+  }
+
+  @if $right != null {
+    right: $right;
+  }
+
+  width: $size;
+  height: $size;
+  background-color: $color;
+  transform: rotate(45deg);
+  transform-origin: center;
+
+  @if $margin-left != null {
+    margin-left: $margin-left;
+  }
 }

@@ -1,5 +1,6 @@
-@forward "./styles/base/typography";
-@forward "./styles/base/variables";
-@forward "./styles/abstracts/mixins";
-@forward "./styles/components/button";
-@forward "./styles/abstracts/functions";
+@forward "../base/typography";
+@forward "../base/variables";
+@forward "../abstract/mixins";
+@forward "./button";
+@forward "./radio";
+@forward "../abstract/functions";

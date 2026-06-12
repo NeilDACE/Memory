@@ -1,0 +1,177 @@
+@use "../components/main" as mix;
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100dvh;
+  background-color: mix.$white;
+  padding: 100px 170px;
+}
+
+h2 {
+  font-family: mix.$font-body;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--gray);
+}
+
+li {
+  font-family: mix.$font-body;
+  font-size: 20px;
+  color: var(--gray);
+}
+
+.settings-title {
+  position: relative;
+  font-family: mix.$font-heading;
+  font-size: mix.$size-heading-lgr;
+  color: var(--gray);
+  display: inline-block;
+  padding: 12px;
+}
+
+.settings-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: mix.$yellow;
+}
+
+.settings-title::after {
+  @include mix.diamond-marker(
+    $size: 16px,
+    $color: mix.$yellow,
+    $bottom: -6px,
+    $left: 0,
+    $margin-left: -8px
+  );
+}
+
+.left-container {
+  @include mix.stack(54px);
+}
+
+.right-container {
+  @include mix.stack(32px, $align: flex-end, $justify: center);
+}
+
+.settings-section {
+  @include mix.stack(16px);
+}
+
+.settings-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 64px;
+}
+
+.settings-container {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.settings-section__options {
+  @include mix.stack(12px);
+}
+
+.settings-section__option:has(input[type="radio"]:checked) {
+  font-weight: bold;
+}
+
+.settings-section__option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.selected-marker {
+  display: none;
+  position: relative;
+  width: 41px;
+  height: 3px;
+  background-color: mix.$yellow;
+}
+
+input[type="radio"]:checked ~ .selected-marker {
+  display: block;
+}
+
+.selected-marker::after {
+  @include mix.diamond-marker(
+    $size: 12px,
+    $color: mix.$yellow,
+    $bottom: -4.5px,
+    $right: 0,
+    $margin-left: -8px
+  );
+}
+
+.settings-section__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.showcase-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  background-color: mix.$light-gray;
+  gap: 16px;
+}
+
+.showcase-section__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showcase-section__text {
+  font-family: mix.$font-body;
+  font-size: 20px;
+  color: var(--gray);
+}
+
+.showcase-section__btn__text {
+  font-family: mix.$font-heading;
+  font-size: mix.$size-button-text-sm;
+  font-weight: bold;
+  color: var(--gray);
+}
+
+.showcase-section__btn.unselect {
+  background-color: #DBDBD6;
+
+  & .showcase-section__btn__text {
+    color: #A3A1A1;
+  }
+
+  & .showcase-section__btn__img {
+    opacity: 0.33;
+  }
+}
+
+.showcase-section__divider {
+  position: relative;
+  width: 56px;
+  height: 8px;
+  background-color: mix.$yellow;
+  transform: rotate(109deg);
+}
+
+.showcase-section__divider::after {
+  @include mix.diamond-marker(
+    $size: 12px,
+    $color: mix.$yellow,
+    $bottom: -4px,
+    $right: -2px,
+    $display: none,
+    $margin-left: -8px
+  );
+}
