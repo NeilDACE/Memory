@@ -1,6 +1,7 @@
 import "/src/styles/components/_card.scss";
 import { createCard } from "./scripts/templates/card-template";
 import { loadSettings} from "./scripts/settings";
+import { assetPaths } from "./scripts/asset-paths";
 let currentTheme: string = "code-vibe-theme";
 let currentPlayerColor: string = "blue";
 let currentBoardSize: number = 16;
@@ -20,8 +21,8 @@ function applyInitialFieldSizeClass(fieldRef: HTMLElement, boardSize: number): v
 }
 
 function updateCardSourcesByCurrentTheme(): void {
-  currentCardBacksideSrc = `/public/assets/imgs/themes/${currentTheme}/cards/back/${currentTheme}-card-icon-backside.svg`;
-  currentCardFrontsideSrc = `/public/assets/imgs/themes/${currentTheme}/cards/front/${currentTheme}-card-icon-01.svg`;
+  currentCardBacksideSrc = assetPaths.getCardBackside(currentTheme);
+  currentCardFrontsideSrc = assetPaths.getCardFront(currentTheme, 1);
 }
 
 function applyCurrentThemeFromBodyData(): void {
@@ -36,17 +37,17 @@ function updateGameFeedbackIconSourcesByCurrentTheme(): void {
   const teamOneIconRef = document.getElementById("team-1-icon") as HTMLImageElement | null;
   const teamTwoIconRef = document.getElementById("team-2-icon") as HTMLImageElement | null;
   if (teamOneIconRef) {
-    teamOneIconRef.src = `/public/assets/imgs/themes/${currentTheme}/team-1-icon.svg`;
+    teamOneIconRef.src = assetPaths.getTeamIcon(currentTheme, 1);
   }
   if (teamTwoIconRef) {
-    teamTwoIconRef.src = `/public/assets/imgs/themes/${currentTheme}/team-2-icon.svg`;
+    teamTwoIconRef.src = assetPaths.getTeamIcon(currentTheme, 2);
   }
 }
 
 function updateCurrentPlayerIndicator(): void {
   const currentPlayerIconRef = document.getElementById("current-player-icon") as HTMLImageElement | null;
   if (currentPlayerIconRef) {
-    currentPlayerIconRef.src = `/public/assets/imgs/themes/${currentTheme}/current-player-icon-player-${currentPlayer}.svg`;
+    currentPlayerIconRef.src = assetPaths.getCurrentPlayerIcon(currentTheme, currentPlayer as 1 | 2);
   }
 }
 
@@ -176,19 +177,18 @@ function getGameDialogElements(): GameDialogElements {
 }
 
 function setTeamIcons(teamOneIcon: HTMLImageElement | null, teamTwoIcon: HTMLImageElement | null): void {
-  if (teamOneIcon) teamOneIcon.src = `/public/assets/imgs/themes/${currentTheme}/team-1-icon.svg`;
-  if (teamTwoIcon) teamTwoIcon.src = `/public/assets/imgs/themes/${currentTheme}/team-2-icon.svg`;
+  if (teamOneIcon) teamOneIcon.src = assetPaths.getTeamIcon(currentTheme, 1);
+  if (teamTwoIcon) teamTwoIcon.src = assetPaths.getTeamIcon(currentTheme, 2);
 }
 
 function getWinnerInfo(teamOneScore: number, teamTwoScore: number): WinnerInfo {
-  const baseImagePath = `/public/assets/imgs/themes/${currentTheme}`;
   if (teamOneScore > teamTwoScore) {
-    return { name: "Blue player", cssClass: "blue-text", icon: `${baseImagePath}/winner-blue-player.svg` };
+    return { name: "Blue player", cssClass: "blue-text", icon: assetPaths.getWinnerPlayerIcon(currentTheme, "blue") };
   }
   if (teamTwoScore > teamOneScore) {
-    return { name: "Orange player", cssClass: "orange-text", icon: `${baseImagePath}/winner-orange-player.svg` };
+    return { name: "Orange player", cssClass: "orange-text", icon: assetPaths.getWinnerPlayerIcon(currentTheme, "orange") };
   }
-  return { name: "It's a", cssClass: "", icon: `${baseImagePath}/draw.svg` };
+  return { name: "It's a", cssClass: "", icon: assetPaths.getDrawIcon(currentTheme) };
 }
 
 function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo): void {
@@ -292,8 +292,7 @@ function init() {
 }
 
 function buildThemeFrontImagePath(imageNumber: number): string {
-  const imageNumberPadded = String(imageNumber).padStart(2, "0");
-  return `/public/assets/imgs/themes/${currentTheme}/cards/front/${currentTheme}-card-icon-${imageNumberPadded}.svg`;
+  return assetPaths.getCardFront(currentTheme, imageNumber);
 }
 
 function shuffleArray<T>(items: T[]): T[] {

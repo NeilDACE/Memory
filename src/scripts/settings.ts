@@ -1,5 +1,5 @@
 interface Settings {
-  theme: "code-vibe" | "gaming" | "da-projects" | "foods";
+  theme: "code-vibe" | "gaming" | "projects" | "foods";
   player: "blue" | "orange";
   size: "16" | "24" | "36";
 }
@@ -35,7 +35,7 @@ function saveSettings(next: Partial<Settings>) {
 
 function formatThemeLabel(theme: Settings["theme"]): string {
   if (theme === "code-vibe") return "Code Vibe";
-  if (theme === "da-projects") return "DA Projects";
+  if (theme === "projects") return "DA Projects";
   if (theme === "gaming") return "Gaming";
   if (theme === "foods") return "Foods";
   return "";
