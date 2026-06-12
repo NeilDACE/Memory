@@ -22,6 +22,30 @@
   }
 }
 
+@mixin row($gap, $justify: null, $align: center, $wrap: null, $disp: flex) {
+  display: $disp;
+  align-items: $align;
+  gap: $gap;
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $wrap != null {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin text-style($family, $size, $color, $weight: null, $line-height: null) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  @if $weight != null {
+    font-weight: $weight;
+  }
+  @if $line-height != null {
+    line-height: $line-height;
+  }
+}
+
 @mixin diamond-marker(
   $size,
   $color,
@@ -34,25 +58,20 @@
   @if $display != null {
     display: $display;
   }
-
   content: "";
   position: absolute;
   bottom: $bottom;
-
   @if $left != null {
     left: $left;
   }
-
   @if $right != null {
     right: $right;
   }
-
   width: $size;
   height: $size;
   background-color: $color;
   transform: rotate(45deg);
   transform-origin: center;
-
   @if $margin-left != null {
     margin-left: $margin-left;
   }

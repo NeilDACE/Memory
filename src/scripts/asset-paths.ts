@@ -2,7 +2,6 @@
 const ASSET_BASE = "/assets";
 
 export const assetPaths = {
-  // UI Icons
   icons: {
     palette: `${ASSET_BASE}/imgs/palette.svg`,
     chessPawn: `${ASSET_BASE}/imgs/chess_pawn.svg`,
