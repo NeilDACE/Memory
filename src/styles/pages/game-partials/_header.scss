@@ -1,0 +1,75 @@
+@use "../../components/main" as mix;
+
+.game-header {
+  @include mix.row(0, $justify: space-between);
+  background: var(--theme-header-bg);
+  padding: 8px 20px;
+}
+
+.game-feedback {
+  @include mix.row(160px);
+}
+
+.points-container {
+  @include mix.row(20px);
+  border-radius: var(--theme-header-left-frame-radius);
+  padding: var(--theme-header-left-frame-padding);
+  background: var(--theme-header-left-frame-bg);
+  box-shadow: var(--theme-header-left-frame-shadow);
+  &__team-1 {
+    @include mix.row(4px);
+    &__score {
+      font-family: var(--theme-header-left-frame-points-font-family);
+      color: var(--theme-header-left-frame-points-team-1-color);
+      font-size: var(--theme-header-left-frame-points-font-size);
+      font-weight: bold;
+    }
+  }
+  &__team-2 {
+    @include mix.row(4px);
+    &__score {
+      font-family: var(--theme-header-left-frame-points-font-family);
+      color: var(--theme-header-left-frame-points-team-2-color);
+      font-size: var(--theme-header-left-frame-points-font-size);
+      font-weight: bold;
+    }
+  }
+}
+
+.turn-indicator {
+  height: 100%;
+  @include mix.row(8px);
+  font-family: var(--theme-header-current-player-font-family);
+  font-size: var(--theme-header-current-player-font-size);
+  color: mix.$white;
+}
+
+.game-header__btn {
+  @include mix.row(10px);
+  background-color: var(--theme-exit-button-color);
+  border: none;
+  box-shadow: var(--theme-exit-button-border);
+  border-radius: var(--theme-exit-button-radius);
+  padding: var(--theme-exit-button-padding);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  &__text {
+    color: var(--theme-exit-button-text-color);
+    font-family: var(--theme-exit-button-text-font-family);
+    font-size: var(--theme-exit-button-text-font-size);
+    font-weight: bold;
+  }
+  &:hover {
+    background-color: var(--theme-exit-button-hover-color);
+    border: none;
+    box-shadow:
+      var(--theme-exit-button-hover-border),
+      var(--theme-exit-button-hover-shadow);
+  }
+  &:hover .game-header__btn__icon {
+    filter: drop-shadow(var(--theme-exit-button-icon-hover-shadow));
+  }
+  &:hover .game-header__btn__text {
+    color: var(--theme-exit-button-text-hover-color);
+  }
+}

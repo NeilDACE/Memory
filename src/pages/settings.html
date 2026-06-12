@@ -39,21 +39,23 @@
       href="/assets/favicon/favicon.ico"
       type="image/x-icon"
     />
-    <script type="module" src="/src/main.ts" defer></script>
+    <script
+      type="module"
+      src="/src/scripts/Entrys/settings-page.ts"
+      defer
+    ></script>
     <link rel="stylesheet" href="/src/main.scss" />
     <link rel="stylesheet" href="/src/styles/pages/settings.scss" />
   </head>
-  <body onload="initializeSettings()">
+  <body>
     <main class="settings-container">
       <h1 class="settings-title">Settings</h1>
       <div class="settings-content">
         <div class="left-container">
           <section class="settings-section">
             <h2 class="settings-section__title">
-              <img
-                src="/public/assets/imgs/palette.svg"
-                alt="Palette icon"
-              />Game themes
+              <img src="/assets/imgs/palette.svg" alt="Palette icon" />Game
+              themes
             </h2>
             <ul class="settings-section__options">
               <li class="settings-section__option">
@@ -62,8 +64,7 @@
                     class="settings-section__option__input"
                     type="radio"
                     name="theme"
-                    value="code"
-                    checked
+                    value="code-vibe"
                   />
                   <span class="radio-box"></span>
                   Code vibes theme
@@ -89,7 +90,7 @@
                     class="settings-section__option__input"
                     type="radio"
                     name="theme"
-                    value="da-projects"
+                    value="projects"
                   />
                   <span class="radio-box"></span>
                   DA Projects theme
@@ -114,7 +115,7 @@
           <section class="settings-section">
             <h2 class="settings-section__title">
               <img
-                src="/public/assets/imgs/chess_pawn.svg"
+                src="/assets/imgs/chess_pawn.svg"
                 alt="Chess pawn icon"
               />Choose player
             </h2>
@@ -149,8 +150,7 @@
           </section>
           <section class="settings-section">
             <h2 class="settings-section__title">
-              <img src="/public/assets/imgs/style.svg" alt="Style icon" />Board
-              size
+              <img src="/assets/imgs/style.svg" alt="Style icon" />Board size
             </h2>
             <ul class="settings-section__options">
               <li class="settings-section__option">
@@ -198,24 +198,34 @@
         <div class="right-container">
           <img
             class="settings-image"
-            src="/public/assets/imgs/themes/code-vibe-theme/theme-visual.svg"
+            src="/assets/imgs/themes/code-vibe-theme/theme-visual.svg"
             alt="visual representation of the code vibe theme"
           />
           <section class="showcase-section">
             <div class="showcase-section__content">
-              <p class="showcase-section__text">Game Theme</p>
+              <p class="showcase-section__text">
+                <span id="selected-theme-value"></span> Theme
+              </p>
               <div class="showcase-section__divider"></div>
-              <p class="showcase-section__text">Player</p>
+              <p class="showcase-section__text">
+                <span id="selected-player-value"></span> Player
+              </p>
               <div class="showcase-section__divider"></div>
-              <p class="showcase-section__text">Board Size</p>
+              <p class="showcase-section__text">
+                Board<span id="selected-size-value"> size</span>
+              </p>
             </div>
-            <button class="sm-btn showcase-section__btn">
+            <a
+              id="start-button"
+              class="sm-btn showcase-section__btn unselect"
+              href="/src/pages/game.html"
+            >
               <img
                 class="showcase-section__btn__img"
-                src="/public/assets/imgs/smart-display.svg"
+                src="/assets/imgs/smart-display.svg"
                 alt="play icon"
               /><span class="showcase-section__btn__text">Start</span>
-            </button>
+            </a>
           </section>
         </div>
       </div>

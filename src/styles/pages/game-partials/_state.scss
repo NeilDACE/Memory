@@ -1,0 +1,17 @@
+@use "../../components/main" as mix;
+
+.margin-top-24 {
+  margin-top: 24px;
+}
+
+.win-status-container {
+  @include mix.stack(0, $align: center);
+}
+
+.blue-text {
+  color: var(--theme-winner-headline-color-blue);
+}
+
+.orange-text {
+  color: var(--theme-winner-headline-color-orange);
+}
