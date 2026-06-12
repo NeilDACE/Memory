@@ -71,13 +71,24 @@
 .finished-game-dialog {
   position: fixed;
   inset: 0;
+  overflow: visible;
   margin: auto;
   width: fit-content;
   height: fit-content;
   border: none;
   padding: 0;
   background: transparent;
+  &__confetti-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+  }
   &__panel {
+    position: relative;
+    z-index: 2;
     @include mix.stack(64px, $align: center);
   }
   &__text {

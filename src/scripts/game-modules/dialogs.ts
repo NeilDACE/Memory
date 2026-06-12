@@ -6,6 +6,7 @@ import {
   type TeamScores,
   type WinnerInfo,
 } from "./types";
+import { playWinAnimation } from "./win-animation";
 
 /**
  * Updates a team score in the score panel.
@@ -155,6 +156,12 @@ export function checkForGameEnd(): void {
   displayWinnerInfo(elements, winnerInfo);
   displayFinalScores(elements, scores);
   elements.dialog.showModal();
+  startConfettiAnimation();
+}
+
+function startConfettiAnimation(): void {
+  const confettiCanvas = document.getElementById("winner-confetti-canvas") as HTMLCanvasElement | null;
+  if (confettiCanvas) playWinAnimation(confettiCanvas);
 }
 
 /**

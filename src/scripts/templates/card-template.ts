@@ -1,3 +1,10 @@
+/**
+ * Creates a single memory card button markup.
+ * @param cardIndex Card index used for class naming.
+ * @param currentCardBacksideSrc Card backside image source.
+ * @param currentCardFrontsideSrc Card frontside image source.
+ * @returns HTML string for one card.
+ */
 export function createCard(
   cardIndex: number,
   currentCardBacksideSrc: string,

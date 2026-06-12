@@ -1,3 +1,6 @@
+/**
+ * Mutable runtime state for the game flow.
+ */
 export interface GameState {
   currentTheme: string;
   currentPlayerColor: string;
@@ -8,6 +11,9 @@ export interface GameState {
   isResolvingDraw: boolean;
 }
 
+/**
+ * Default in-memory state values used by game modules.
+ */
 export const gameState: GameState = {
   currentTheme: "code-vibe-theme",
   currentPlayerColor: "blue",
