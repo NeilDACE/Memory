@@ -39,11 +39,11 @@
       href="/assets/favicon/favicon.ico"
       type="image/x-icon"
     />
-    <script type="module" src="/src/main.ts" defer></script>
+    <script type="module" src="/src/scripts/settings-page.ts" defer></script>
     <link rel="stylesheet" href="/src/main.scss" />
     <link rel="stylesheet" href="/src/styles/pages/settings.scss" />
   </head>
-  <body onload="initializeSettings()">
+  <body>
     <main class="settings-container">
       <h1 class="settings-title">Settings</h1>
       <div class="settings-content">
@@ -62,8 +62,7 @@
                     class="settings-section__option__input"
                     type="radio"
                     name="theme"
-                    value="code"
-                    checked
+                    value="code-vibe"
                   />
                   <span class="radio-box"></span>
                   Code vibes theme
@@ -203,11 +202,17 @@
           />
           <section class="showcase-section">
             <div class="showcase-section__content">
-              <p class="showcase-section__text">Game Theme</p>
+              <p class="showcase-section__text">
+                <span id="selected-theme-value"></span> Theme
+              </p>
               <div class="showcase-section__divider"></div>
-              <p class="showcase-section__text">Player</p>
+              <p class="showcase-section__text">
+                <span id="selected-player-value"></span> Player
+              </p>
               <div class="showcase-section__divider"></div>
-              <p class="showcase-section__text">Board Size</p>
+              <p class="showcase-section__text">
+                Board<span id="selected-size-value"> size</span>
+              </p>
             </div>
             <button class="sm-btn showcase-section__btn">
               <img

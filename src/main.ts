@@ -1,8 +1,9 @@
 import "/src/styles/components/_card.scss";
 import { createCard } from "./scripts/templates/card-template";
+import { loadSettings} from "./scripts/settings";
 let currentTheme: string = "code-vibe-theme";
-let boardSize: number[] = [16, 24, 36];
-let currentBoardSize: number = boardSize[0];
+let currentPlayerColor: string = "blue";
+let currentBoardSize: number = 16;
 let currentCardBacksideSrc: string = "";
 let currentCardFrontsideSrc: string = "";
 let currentPlayer: number = 1;
@@ -10,45 +11,6 @@ let currentDraw: HTMLButtonElement[] = [];
 let isResolvingDraw: boolean = false;
 
 init();
-initializeSettings();
-
-interface Settings {
-  theme: "code-vibe" | "gaming" | "da-projects" | "foods";
-  player: "blue" | "orange";
-  size: "16" | "24" | "36";
-}
-
-const STORAGE_KEY = "memory-settings";
-
-function initializeSettings() {
-  bindSettingsRadios();
-}
-
-function loadSettings(): Partial<Settings> {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return {};
-  try {
-    return { ...JSON.parse(raw) };
-  } catch {
-    return {};
-  }
-}
-
-function saveSettings(next: Partial<Settings>) {
-  const current = loadSettings();
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...current, ...next }));
-}
-
-function bindSettingsRadios() {
-  document.addEventListener("change", (e) => {
-    const target = e.target as HTMLInputElement;
-    if (!target.matches('input[type="radio"]')) return;
-
-    if (target.name === "theme") saveSettings({ theme: target.value as Settings["theme"] });
-    if (target.name === "player") saveSettings({ player: target.value as Settings["player"] });
-    if (target.name === "size") saveSettings({ size: target.value as Settings["size"] });
-  });
-}
 
 function applyInitialFieldSizeClass(fieldRef: HTMLElement, boardSize: number): void {
   fieldRef.classList.remove("game-field--sm");
@@ -90,14 +52,49 @@ function updateCurrentPlayerIndicator(): void {
 
 function switchCurrentPlayer(): void {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
+  currentPlayerColor = currentPlayer === 1 ? "blue" : "orange";
   updateCurrentPlayerIndicator();
 }
 
+function getPlayerNumberByColor(playerColor: string): number {
+  return playerColor === "orange" ? 2 : 1;
+}
+
 function resetTurnStateForNewGame(): void {
-  currentPlayer = 1;
+  currentPlayer = getPlayerNumberByColor(currentPlayerColor);
   currentDraw = [];
   isResolvingDraw = false;
   updateCurrentPlayerIndicator();
+}
+
+function toThemeName(theme: string): string {
+  return theme.endsWith("-theme") ? theme : `${theme}-theme`;
+}
+
+function toBoardSize(size: string): number | null {
+  const parsedSize = Number(size);
+  return parsedSize === 16 || parsedSize === 24 || parsedSize === 36
+    ? parsedSize
+    : null;
+}
+
+function applyStoredSettings(): void {
+  const settings = loadSettings();
+  if (settings.theme) {
+    currentTheme = toThemeName(settings.theme);
+    document.body.dataset.theme = currentTheme.replace(/-theme$/, "");
+  }
+  if (settings.player) {
+    currentPlayerColor = settings.player;
+  }
+  if (settings.size) {
+    const parsedSize = toBoardSize(settings.size);
+    if (parsedSize) {
+      currentBoardSize = parsedSize;
+    }
+  }
+  currentPlayer = getPlayerNumberByColor(currentPlayerColor);
+  updateCardSourcesByCurrentTheme();
 }
 
 function areDrawnCardsMatching(firstCard: HTMLButtonElement, secondCard: HTMLButtonElement): boolean {
@@ -276,6 +273,7 @@ function initializeExitDialog(): void {
 }
 
 function init() {
+  applyStoredSettings();
   initializeThemeLoading();
   initializeExitDialog();
   const fieldRef = document.getElementById("field");
