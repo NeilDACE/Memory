@@ -5,6 +5,9 @@ interface Settings {
 }
 
 const STORAGE_KEY = "memory-settings";
+let themeSelected: boolean = false;
+let playerSelected: boolean = false;
+let sizeSelected: boolean = false;
 
 export function initializeSettings() {
   clearSettingsStorage();
@@ -47,26 +50,63 @@ function formatSizeLabel(size: Settings["size"]): string {
 }
 
 function bindSettingsRadios() {
-  document.addEventListener("change", (e) => {
-    const target = e.target as HTMLInputElement;
-    if (!target.matches('input[type="radio"]')) return;
-    if (target.name === "theme") {
-      const theme = target.value as Settings["theme"];
-      saveSettings({ theme });
-      const themeValue = document.getElementById("selected-theme-value");
-      if (themeValue) themeValue.textContent = formatThemeLabel(theme);
-    }
-    if (target.name === "player") {
-      const player = target.value as Settings["player"];
-      saveSettings({ player });
-      const playerValue = document.getElementById("selected-player-value");
-      if (playerValue) playerValue.textContent = formatPlayerLabel(player);
-    }
-    if (target.name === "size") {
-      const size = target.value as Settings["size"];
-      saveSettings({ size });
-      const sizeValue = document.getElementById("selected-size-value");
-      if (sizeValue) sizeValue.textContent = formatSizeLabel(size);
-    }
-  });
+  document.addEventListener("change", handleSettingsChange);
+}
+
+function handleSettingsChange(e: Event) {
+  const target = e.target as HTMLInputElement;
+  if (!isRadioInput(target)) return;
+  processSelection(target);
+  activateStartButtonIfReady();
+}
+
+function isRadioInput(target: HTMLInputElement): boolean {
+  return target.matches('input[type="radio"]');
+}
+
+function processSelection(target: HTMLInputElement) {
+  if (target.name === "theme") handleThemeSelection(target.value as Settings["theme"]);
+  if (target.name === "player") handlePlayerSelection(target.value as Settings["player"]);
+  if (target.name === "size") handleSizeSelection(target.value as Settings["size"]);
+}
+
+function handleThemeSelection(theme: Settings["theme"]) {
+  saveSettings({ theme });
+  themeSelected = true;
+  updateText("selected-theme-value", formatThemeLabel(theme));
+}
+
+function handlePlayerSelection(player: Settings["player"]) {
+  saveSettings({ player });
+  playerSelected = true;
+  updateText("selected-player-value", formatPlayerLabel(player));
+}
+
+function handleSizeSelection(size: Settings["size"]) {
+  saveSettings({ size });
+  sizeSelected = true;
+  updateText("selected-size-value", formatSizeLabel(size));
+}
+
+function updateText(elementId: string, value: string) {
+  const element = document.getElementById(elementId);
+  if (element) element.textContent = value;
+}
+
+function activateStartButtonIfReady() {
+  if (!(themeSelected && playerSelected && sizeSelected)) return;
+  showDividers();
+  enableStartButton();
+}
+
+function showDividers() {
+  const dividers = document.querySelectorAll(".showcase-section__divider") as NodeListOf<HTMLDivElement>;
+  dividers.forEach((div) => div.classList.add("display-block", "height-04"));
+}
+
+function enableStartButton() {
+  const startButton = document.getElementById("start-button") as HTMLAnchorElement;
+  if (!startButton) return;
+  startButton.classList.remove("unselect");
+  startButton.removeAttribute("aria-disabled");
 }
