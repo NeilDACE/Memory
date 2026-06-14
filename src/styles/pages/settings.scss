@@ -41,4 +41,8 @@ li {
   @include mix.container;
 }
 
+.settings-image {
+  transition: opacity 300ms;
+}
+
 

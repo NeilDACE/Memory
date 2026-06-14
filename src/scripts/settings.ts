@@ -1,4 +1,5 @@
 import { assetPaths } from "../main";
+import { fadeSwapSrc } from "./utils";
 
 interface Settings {
   theme: "code-vibe" | "gaming" | "projects" | "foods";
@@ -171,7 +172,7 @@ function updateText(elementId: string, value: string) {
 function updateThemePreview(theme: Settings["theme"]) {
   const preview = document.getElementById("theme-preview") as HTMLImageElement | null;
   const normalizedTheme = theme.endsWith("-theme") ? theme : `${theme}-theme`;
-  if (preview) preview.src = assetPaths.getThemeVisual(normalizedTheme);
+  if (preview) fadeSwapSrc(preview, assetPaths.getThemeVisual(normalizedTheme));
 }
 
 /**

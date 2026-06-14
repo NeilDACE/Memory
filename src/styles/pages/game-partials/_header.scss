@@ -35,6 +35,9 @@
   box-shadow: var(--theme-header-left-frame-shadow);
   &__team-1 {
     @include mix.row(4px);
+    &__icon {
+      transition: opacity 300ms;
+    }
     &__score {
       font-family: var(--theme-header-left-frame-points-font-family);
       color: var(--theme-header-left-frame-points-team-1-color);
@@ -44,6 +47,9 @@
   }
   &__team-2 {
     @include mix.row(4px);
+    &__icon {
+      transition: opacity 300ms;
+    }
     &__score {
       font-family: var(--theme-header-left-frame-points-font-family);
       color: var(--theme-header-left-frame-points-team-2-color);
@@ -58,6 +64,9 @@
   font-family: var(--theme-header-current-player-font-family);
   font-size: var(--theme-header-current-player-font-size);
   color: var(--theme-header-current-player-color);
+  &__icon {
+    transition: opacity 300ms;
+  }
 }
 
 .game-header__btn {

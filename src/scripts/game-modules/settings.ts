@@ -1,4 +1,5 @@
 import { assetPaths, loadSettings } from "../../main";
+import { fadeSwapSrc } from "../utils";
 import { gameState } from "./state";
 
 /**
@@ -29,10 +30,10 @@ function updateGameFeedbackIconSourcesByCurrentTheme(): void {
   const teamOneIconRef = document.getElementById("team-1-icon") as HTMLImageElement | null;
   const teamTwoIconRef = document.getElementById("team-2-icon") as HTMLImageElement | null;
   if (teamOneIconRef) {
-    teamOneIconRef.src = assetPaths.getTeamIcon(gameState.currentTheme, 1);
+    fadeSwapSrc(teamOneIconRef, assetPaths.getTeamIcon(gameState.currentTheme, 1));
   }
   if (teamTwoIconRef) {
-    teamTwoIconRef.src = assetPaths.getTeamIcon(gameState.currentTheme, 2);
+    fadeSwapSrc(teamTwoIconRef, assetPaths.getTeamIcon(gameState.currentTheme, 2));
   }
 }
 
@@ -43,7 +44,7 @@ function updateGameFeedbackIconSourcesByCurrentTheme(): void {
 export function updateCurrentPlayerIndicator(): void {
   const currentPlayerIconRef = document.getElementById("current-player-icon") as HTMLImageElement | null;
   if (currentPlayerIconRef) {
-    currentPlayerIconRef.src = assetPaths.getCurrentPlayerIcon(gameState.currentTheme, gameState.currentPlayer);
+    fadeSwapSrc(currentPlayerIconRef, assetPaths.getCurrentPlayerIcon(gameState.currentTheme, gameState.currentPlayer));
   }
 }
 

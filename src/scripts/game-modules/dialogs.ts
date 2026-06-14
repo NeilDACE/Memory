@@ -1,4 +1,5 @@
 import { assetPaths } from "../../main";
+import { fadeSwapSrc } from "../utils";
 import { gameState } from "./state";
 import {
   type ExitDialogElements,
@@ -95,8 +96,8 @@ function getGameDialogElements(): GameDialogElements {
  * @returns Nothing.
  */
 function setTeamIcons(teamOneIcon: HTMLImageElement | null, teamTwoIcon: HTMLImageElement | null): void {
-  if (teamOneIcon) teamOneIcon.src = assetPaths.getTeamIcon(gameState.currentTheme, 1);
-  if (teamTwoIcon) teamTwoIcon.src = assetPaths.getTeamIcon(gameState.currentTheme, 2);
+  if (teamOneIcon) fadeSwapSrc(teamOneIcon, assetPaths.getTeamIcon(gameState.currentTheme, 1));
+  if (teamTwoIcon) fadeSwapSrc(teamTwoIcon, assetPaths.getTeamIcon(gameState.currentTheme, 2));
 }
 
 /**
@@ -126,13 +127,13 @@ function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo)
     elements.winnerText.textContent = winnerInfo.name;
     if (winnerInfo.cssClass) elements.winnerText.classList.add(winnerInfo.cssClass);
   }
-  if (elements.winnerIcon) elements.winnerIcon.src = winnerInfo.icon;
+  if (elements.winnerIcon) fadeSwapSrc(elements.winnerIcon, winnerInfo.icon);
   if (winnerInfo.name === "It's a" && elements.title) {
     elements.title.innerHTML = "It's a";
     const drawIcon = document.getElementById("draw-icon") as HTMLImageElement | null;
     if (drawIcon) {
-      drawIcon.src = assetPaths.getScaleIcon(gameState.currentTheme);
       drawIcon.style.display = "block";
+      fadeSwapSrc(drawIcon, assetPaths.getScaleIcon(gameState.currentTheme));
     }
   }
 }

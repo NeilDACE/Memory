@@ -106,8 +106,12 @@
     font-size: var(--theme-winner-headline-size);
     font-weight: bold;
   }
+  &__winner-icon {
+    transition: opacity 300ms;
+  }
   &__draw-icon {
     display: none;
+    transition: opacity 300ms;
   }
   &__button {
     font-family: var(--theme-exit-button-text-font-family);
