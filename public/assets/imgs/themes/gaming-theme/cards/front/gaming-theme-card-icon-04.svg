@@ -1,8 +1,5 @@
-<svg width="129" height="144" viewBox="0 0 129 144" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g filter="url(#filter0_d_2078_4196)">
-<rect width="105" height="120" rx="12" transform="matrix(-1 0 0 1 111 6)" fill="url(#paint0_linear_2078_4196)"/>
-</g>
-<g filter="url(#filter1_d_2078_4196)">
+<svg width="105" height="120" viewBox="6 6 105 120" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g>
 <rect x="6" y="6" width="105" height="120" rx="12" fill="#F6F1F3"/>
 <rect x="24" y="31" width="70" height="70" fill="url(#pattern0_2078_4196)"/>
 </g>

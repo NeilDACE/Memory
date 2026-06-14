@@ -15,16 +15,16 @@
     height: 100%;
     transition: all 300ms ease-in-out;
     transform-style: preserve-3d;
+    border-radius: var(--theme-card-border-radius);
+    box-shadow: var(--theme-card-shadow);
   }
   &__face{
     position: absolute;
     inset: 0;
     background-color: black;
     backface-visibility: hidden;
-    box-shadow:
-      var(--theme-card-border-radius),
-      var(--theme-card-shadow);
     border-radius: var(--theme-card-border-radius);
+    box-shadow: var(--theme-card-shadow);
     &--back{
       transform: rotateY(180deg);
       background-color: red;

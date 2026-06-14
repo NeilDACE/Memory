@@ -127,7 +127,14 @@ function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo)
     if (winnerInfo.cssClass) elements.winnerText.classList.add(winnerInfo.cssClass);
   }
   if (elements.winnerIcon) elements.winnerIcon.src = winnerInfo.icon;
-  if (winnerInfo.name === "It's a" && elements.title) elements.title.innerHTML = "It's a";
+  if (winnerInfo.name === "It's a" && elements.title) {
+    elements.title.innerHTML = "It's a";
+    const drawIcon = document.getElementById("draw-icon") as HTMLImageElement | null;
+    if (drawIcon) {
+      drawIcon.src = assetPaths.getScaleIcon(gameState.currentTheme);
+      drawIcon.style.display = "block";
+    }
+  }
 }
 
 /**
