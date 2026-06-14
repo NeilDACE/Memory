@@ -28,8 +28,9 @@
   }
   &__button {
     display: flex;
+    border: none;
     background-color: var(--theme-pop-up-button-color);
-    border: var(--theme-pop-up-button-border);
+    box-shadow:  var(--theme-pop-up-button-border);
     border-radius: var(--theme-pop-up-button-radius);
     padding: var(--theme-pop-up-button-padding);
     font-family: var(--theme-pop-up-button-text-font-family);
@@ -41,7 +42,6 @@
   &__button--cancel {
     &:hover {
       background-color: var(--theme-pop-up-button-hover-color);
-      border: var(--theme-pop-up-button-hover-border);
       box-shadow:
         var(--theme-pop-up-button-hover-border),
         var(--theme-pop-up-button-hover-shadow);
@@ -60,6 +60,7 @@
       box-shadow:
         var(--theme-exit-button-hover-border),
         var(--theme-exit-button-hover-shadow);
+      color: var(--theme-pop-up-button-text-exit-hover-color);
     }
   }
 }
@@ -121,6 +122,7 @@
       box-shadow:
         var(--theme-exit-button-hover-border),
         var(--theme-exit-button-hover-shadow);
+      color: var(--theme-exit-button-text-hover-color);
     }
   }
 }

@@ -42,7 +42,7 @@
   @include mix.row(var(--theme-header-current-player-gap));
   font-family: var(--theme-header-current-player-font-family);
   font-size: var(--theme-header-current-player-font-size);
-  color: mix.$white;
+  color: var(--theme-header-current-player-color);
 }
 
 .game-header__btn {
@@ -60,6 +60,9 @@
     font-size: var(--theme-exit-button-text-font-size);
     font-weight: bold;
   }
+  &__icon {
+    color: var(--theme-exit-button-icon-color);
+  }
   &:hover {
     background-color: var(--theme-exit-button-hover-color);
     border: none;
@@ -69,6 +72,7 @@
   }
   &:hover .game-header__btn__icon {
     filter: drop-shadow(var(--theme-exit-button-icon-hover-shadow));
+    color: var(--theme-exit-button-icon-hover-color);
   }
   &:hover .game-header__btn__text {
     color: var(--theme-exit-button-text-hover-color);
