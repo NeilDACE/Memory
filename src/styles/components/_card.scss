@@ -21,13 +21,11 @@
   &__face{
     position: absolute;
     inset: 0;
-    background-color: black;
     backface-visibility: hidden;
     border-radius: var(--theme-card-border-radius);
     box-shadow: var(--theme-card-shadow);
     &--back{
       transform: rotateY(180deg);
-      background-color: red;
     }
   }
   &.is-flipped .card__inner{
