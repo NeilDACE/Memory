@@ -1,3 +1,5 @@
+import { assetPaths } from "../main";
+
 interface Settings {
   theme: "code-vibe" | "gaming" | "projects" | "foods";
   player: "blue" | "orange";
@@ -130,6 +132,7 @@ function handleThemeSelection(theme: Settings["theme"]) {
   saveSettings({ theme });
   themeSelected = true;
   updateText("selected-theme-value", formatThemeLabel(theme));
+  updateThemePreview(theme);
 }
 
 /**
@@ -163,6 +166,12 @@ function handleSizeSelection(size: Settings["size"]) {
 function updateText(elementId: string, value: string) {
   const element = document.getElementById(elementId);
   if (element) element.textContent = value;
+}
+
+function updateThemePreview(theme: Settings["theme"]) {
+  const preview = document.getElementById("theme-preview") as HTMLImageElement | null;
+  const normalizedTheme = theme.endsWith("-theme") ? theme : `${theme}-theme`;
+  if (preview) preview.src = assetPaths.getThemeVisual(normalizedTheme);
 }
 
 /**

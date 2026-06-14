@@ -3,6 +3,7 @@
 .game-header {
   @include mix.row(0, $justify: space-between);
   background: var(--theme-header-bg);
+  border-radius: var(--theme-header-radius);
   height: 102px;
   padding: 0px 20px;
 }
