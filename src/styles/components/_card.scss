@@ -9,6 +9,7 @@
   aspect-ratio: 1/1;
   background-color: transparent;
   border: none;
+  
   &__inner{
     position: relative;
     width: 100%;
@@ -21,6 +22,7 @@
   &__face{
     position: absolute;
     inset: 0;
+    overflow: hidden;
     backface-visibility: hidden;
     border-radius: var(--theme-card-border-radius);
     box-shadow: var(--theme-card-shadow);
@@ -30,5 +32,19 @@
   }
   &.is-flipped .card__inner{
     transform: rotateY(180deg);
+  }
+
+  &[data-matched="true"] {
+    box-shadow: var(--match-status-shadow);
+    border-radius: var(--theme-card-border-radius);
+
+    .card__face::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--theme-card-border-radius);
+      box-shadow: var(--match-status-inner-border);
+      pointer-events: none;
+    }
   }
 }

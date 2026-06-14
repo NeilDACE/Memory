@@ -1,15 +1,30 @@
 @use "../../components/main" as mix;
 
 .game-header {
-  @include mix.row(0, $justify: space-between);
+  @include mix.row(0);
   background: var(--theme-header-bg);
   border-radius: var(--theme-header-radius);
   height: 102px;
   padding: 0px 20px;
 }
 
+.game-header__left,
+.game-header__right {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+}
+
+.game-header__left {
+  justify-content: flex-start;
+}
+
+.game-header__right {
+  justify-content: flex-end;
+}
+
 .game-feedback {
-  @include mix.row(160px);
+  @include mix.row(0);
 }
 
 .points-container {
@@ -39,7 +54,6 @@
 }
 
 .turn-indicator {
-  height: 100%;
   @include mix.row(var(--theme-header-current-player-gap));
   font-family: var(--theme-header-current-player-font-family);
   font-size: var(--theme-header-current-player-font-size);
