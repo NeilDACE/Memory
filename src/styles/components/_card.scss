@@ -4,7 +4,8 @@
 @use "../themes/projects";
 
 .card {
-  height: 120px;
+  height: var(--theme-card-height);
+  width: var(--theme-card-width);
   aspect-ratio: 1/1;
   background-color: transparent;
   border: none;

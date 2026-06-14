@@ -3,7 +3,8 @@
 .game-header {
   @include mix.row(0, $justify: space-between);
   background: var(--theme-header-bg);
-  padding: 8px 20px;
+  height: 102px;
+  padding: 0px 20px;
 }
 
 .game-feedback {
@@ -38,7 +39,7 @@
 
 .turn-indicator {
   height: 100%;
-  @include mix.row(8px);
+  @include mix.row(var(--theme-header-current-player-gap));
   font-family: var(--theme-header-current-player-font-family);
   font-size: var(--theme-header-current-player-font-size);
   color: mix.$white;
