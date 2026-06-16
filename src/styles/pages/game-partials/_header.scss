@@ -111,13 +111,23 @@ header {
   }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 600px) {
   header {
     position: fixed;
     top: 0;
     z-index: 2;
     box-shadow: var(--theme-header-shadow);
   }
+  .game-header {
+    margin-bottom: 8px;
+  }
+
+  .turn-indicator {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1150px) {
   
   .game-header {
     flex-direction: column;
@@ -125,13 +135,7 @@ header {
     width: auto;
     gap: 16px;
     padding: 16px;
-    margin-bottom: 8px;
+    
   }
-
-  .turn-indicator {
-    font-size: 24px;
-  }
-
-
 }
 

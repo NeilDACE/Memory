@@ -6,7 +6,7 @@
   margin: auto;
   width: fit-content;
   height: fit-content;
-  max-width: calc(100% - 32px);
+  max-width: 100%;
   border: none;
   padding: 0;
   background: transparent;
@@ -37,6 +37,7 @@
     font-size: var(--theme-pop-up-button-text-font-size);
     font-weight: bold;
     color: var(--theme-pop-up-button-text-color);
+    text-align: center;
     cursor: pointer;
   }
   &__button--cancel {

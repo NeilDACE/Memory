@@ -18,16 +18,14 @@
   }
 }
 
-@media (max-width: 1150px) {
-  .game-container {
-    padding-top: 200px;
-  }
-}
-
 @media (max-width: 600px) {
   .game-field {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+
+  .game-container {
+    padding-top: 200px;
   }
 }
 
