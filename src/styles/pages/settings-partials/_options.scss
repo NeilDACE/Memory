@@ -14,7 +14,7 @@
 }
 
 .selected-marker {
-  display: none;
+  visibility: hidden;
   position: relative;
   width: 41px;
   height: 3px;
@@ -22,7 +22,7 @@
 }
 
 input[type="radio"]:checked ~ .selected-marker {
-  display: block;
+  visibility: visible;
 }
 
 .selected-marker::after {

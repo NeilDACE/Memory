@@ -10,6 +10,14 @@ import {
 import { playWinAnimation } from "./win-animation";
 
 /**
+ * Prevents page scrolling while a dialog is open.
+ * @returns Nothing.
+ */
+function setBodyOverflowHidden(): void {
+  document.body.style.overflow = "hidden";
+}
+
+/**
  * Updates a team score in the score panel.
  * @param team Team number.
  * @param points New score value.
@@ -164,9 +172,14 @@ export function checkForGameEnd(): void {
   displayWinnerInfo(elements, winnerInfo);
   displayFinalScores(elements, scores);
   elements.dialog.showModal();
+  setBodyOverflowHidden();
   startConfettiAnimation();
 }
 
+/**
+ * Starts the confetti animation for the finished-game dialog.
+ * @returns Nothing.
+ */
 function startConfettiAnimation(): void {
   const confettiCanvas = document.getElementById("winner-confetti-canvas") as HTMLCanvasElement | null;
   if (confettiCanvas) playWinAnimation(confettiCanvas);

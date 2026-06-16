@@ -87,11 +87,11 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 1;
+    z-index: 3;
   }
   &__panel {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     @include mix.stack(64px, $align: center);
   }
   &__text {
@@ -144,4 +144,16 @@
   inset: 0;
   background-color: var(--theme-winner-bg);
   z-index: -1;
+}
+
+@media (max-width: 600px) {
+  .finished-game-dialog__winner-icon {
+    width: 150px;
+    height: 150px;
+   
+  }
+  .finished-game-dialog__draw-icon {
+    width: 150px;
+    height: 150px;
+  }
 }
