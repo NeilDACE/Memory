@@ -138,15 +138,6 @@
   background-color: var(--theme-winner-bg);
 }
 
-// Temporär für Design-Vorschau mit dem open-Attribut:
-.finished-game-dialog[open]::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-color: var(--theme-winner-bg);
-  z-index: -1;
-}
-
 @media (max-width: 600px) {
   .finished-game-dialog__winner-icon {
     width: 150px;
