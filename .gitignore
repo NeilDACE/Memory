@@ -1,6 +1,7 @@
 node_modules/
 Documents/
 dist/
+docs/
 coverage/
 .vite/
 *.tsbuildinfo
