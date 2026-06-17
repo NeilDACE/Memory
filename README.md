@@ -47,7 +47,7 @@ System Requirements / Notes 📌
 
 License 📄
 
-- ISC (see `package.json`)
+- MIT (see `package.json`)
 
 Folder Structure 🗂️
 
