@@ -1,6 +1,10 @@
 // Theme scaffold: code vibe
 [data-theme="code-vibe"] {
   --theme-bg: #303131;
+  --theme-card-height: 120px;
+  --theme-card-width: 120px;
+  --theme-cards-shadow: 0px 0px 0px 0px #00000000;
+  --theme-card-border-radius: 0px;
   
   --theme-header-bg: #4DD5BC33;
   --theme-header-radius: 0px;
@@ -17,7 +21,9 @@
   --theme-header-left-frame-points-font-size: 24px;
 
   --theme-header-current-player-font-family: "Red Rose", serif;
+  --theme-header-current-player-color: #FFFFFF;
   --theme-header-current-player-font-size: 26px;
+  --theme-header-current-player-gap: 8px;
 
   --theme-pop-up-bg: #FFFFFF;
   --theme-pop-up-radius: 0px;

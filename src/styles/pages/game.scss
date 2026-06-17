@@ -12,3 +12,9 @@ body {
   background: var(--theme-bg);
   padding: 40px 112px;
 }
+
+@media (max-width: 1150px) {
+  body {
+    padding: 32px 8px;
+  }
+}

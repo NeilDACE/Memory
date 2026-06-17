@@ -64,3 +64,10 @@
 .height-04 {
   height: 4px;
 }
+
+@media (max-width: 1350px) {
+  .showcase-section__content {
+    display: none;
+  }
+}
+

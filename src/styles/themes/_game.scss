@@ -1,83 +1,93 @@
 // Theme scaffold: game
 [data-theme="gaming"] {
-  --theme-bg: linear-gradient(223.71deg, #303131 43.86%, #6D6D6D 122.2%);
+  --theme-bg: #294F60;
+  --theme-card-height: 120px;
+  --theme-card-width: 105px;
   
-  --theme-header-bg: #4DD5BC33;
-  --theme-header-radius: 0px;
+  
+  --theme-header-bg:#FD96C933;
+  --theme-header-radius: 10px;
   --theme-header-shadow: 3px 2px 10.1px 0px #00000033;
 
-  --theme-header-left-frame-bg: #86E9D64D;
-  --theme-header-left-frame-radius: 0px;
+  --theme-header-left-frame-bg: #FFFFFF;
+  --theme-header-left-frame-radius: 10px;
   --theme-header-left-frame-shadow: 0px 0px 0px 0px #00000000;
-  --theme-header-left-frame-padding: 17px 20px 17px 20px;
+  --theme-header-left-frame-padding: 8px 20px 8px 20px;
 
-  --theme-header-left-frame-points-font-family: "October Devanagari", serif;
-  --theme-header-left-frame-points-team-1-color: #2BB1FF;
-  --theme-header-left-frame-points-team-2-color: #F58E39;
-  --theme-header-left-frame-points-font-size: 24px;
+  --theme-header-left-frame-points-font-family: "Orbitron", serif;
+  --theme-header-left-frame-points-team-1-color: #097FC5;
+  --theme-header-left-frame-points-team-2-color: #EA6900;
+  --theme-header-left-frame-points-font-size: 30px;
 
-  --theme-header-current-player-font-family: "Red Rose", serif;
-  --theme-header-current-player-font-size: 26px;
+  --theme-header-current-player-font-family: "Orbitron", serif;
+  --theme-header-current-player-color: #FFFFFF;
+  --theme-header-current-player-font-size: 32px;
+  --theme-header-current-player-gap: 18px;
 
-  --theme-pop-up-bg: #FFFFFF;
-  --theme-pop-up-radius: 0px;
-  --theme-pop-up-font-family: "Red Rose", serif;
-  --theme-pop-up-font-color: #303131;
-  --theme-pop-up-font-size: 32px;
+  --theme-pop-up-bg: #F0F6F9;
+  --theme-pop-up-radius: 20px;
+  --theme-pop-up-font-family: "Orbitron", serif;
+  --theme-pop-up-font-color: #294F60;
+  --theme-pop-up-font-size: 28px;
 
-  --theme-game-over-bg: #303131;
+  --theme-game-over-bg: #294F60;
   --theme-game-over-padding: 24px;
   --theme-game-over-text-color: #FFFFFF;
-  --theme-game-over-text-size: 26px;
+  --theme-game-over-text-size: 28px;
 
-  --theme-winner-bg: #303131;
-  --theme-winner-headline-color: #F58E39;
-  --theme-winner-headline-font-family: "Red Rose", serif;
-  --theme-winner-headline-size: 60px;
+  --theme-winner-bg: #294F60;
+  --theme-winner-headline-color: #EA6900;
+  --theme-winner-headline-font-family: "Orbitron", serif;
+  --theme-winner-headline-size: 64px;
   --theme-winner-text-color: #FFFFFF;
-  --theme-winner-text-font-family: "Red Rose", serif;
-  --theme-winner-text-size: 40px;
+  --theme-winner-text-font-family: "Orbitron", serif;
+  --theme-winner-text-size: 28px;
 
-  --theme-draw-bg: #303131;
+  --theme-draw-bg: #294F60;
   --theme-draw-text-color: #FFFFFF;
-  --theme-draw-text-font-family: "Red Rose", serif;
-  --theme-draw-text-size: 40px;
-  --theme-card-border-radius: 0px;
-  --theme-card-shadow: 0px 0px 0px 0px #00000000;
+  --theme-draw-text-font-family: "Orbitron", serif;
+  --theme-draw-text-size: 28px;
+  --theme-card-shadow: 6px 6px 12px 0px #00000040;
+  --theme-card-border-radius: 12px;
 
-  --match-status-color:#FFFFFF;
-  --match-status-inner-border: inset 0 0 0 5px #4DD5BC;
-  --match-status-shadow: 6px 6px 8px 0px #4DD5BC4D;
+  --match-status-color:#F6F1F3;
+  --match-status-inner-border: inset 0 0 0 3px #ED1B76;
+  --match-status-shadow: 5px 5px 8px 0px #ED1B764D;
 
-  --theme-exit-button-color: #86E9D624;
-  --theme-exit-button-border: inset 0 0 0 2px #4DD5BC;
-  --theme-exit-button-radius: 0px;
-  --theme-exit-button-padding: 16px 24px 16px 24px;
-  --theme-exit-button-hover-color: #86E9D642;
-  --theme-exit-button-hover-border: inset 0 0 0 3px #4DD5BC;
-  --theme-exit-button-hover-shadow: 4px 4px 6px 0px #4DD5BC33;
+  --theme-exit-button-color: #ED1B7614;
+  --theme-exit-button-border: inset 0 0 0 2px #E71C4F;
+  --theme-exit-button-radius: 10px;
+  --theme-exit-button-padding: 12px 20px 12px 20px;
+  --theme-exit-button-hover-color: #ED1B7624;
+  --theme-exit-button-hover-border: inset 0 0 0 3px #E71C4F;
+  --theme-exit-button-hover-shadow: 3px 3px 5px 0px #2F2E2E33;
+;
 
   --theme-exit-button-icon-color: #FFFFFF;
   --theme-exit-button-icon-size: size(30px, 30px);
-  --theme-exit-button-icon-hover-color: #FFFFFF;
-  --theme-exit-button-icon-hover-shadow: 3px 3px 4px 0px #00000040;
+  --theme-exit-button-icon-hover-color: #E71C4F;
+  --theme-exit-button-icon-hover-shadow: 3px 3px 4.5px 0px #00000059;
+;
 
   --theme-exit-button-text-color: #FFFFFF;
   --theme-exit-button-text-hover-color: #FFFFFF;
-  --theme-exit-button-text-font-family: "Red Rose", serif;
-  --theme-exit-button-text-font-size: 24px;
+  --theme-exit-button-text-font-family: "Orbitron", serif;
+  --theme-exit-button-text-font-size: 20px;
 
-  --theme-pop-up-button-color: #66CFBC;
+  --theme-pop-up-button-color: #ED1B76;
   --theme-pop-up-button-border: none;
-  --theme-pop-up-button-radius: 0px;
-  --theme-pop-up-button-padding: 16px 24px 16px 24px;
-  --theme-pop-up-button-hover-color: #66CFBCB2;
-  --theme-pop-up-button-hover-border: inset 0 0 0 3px #3ABCA4;
-  --theme-pop-up-button-hover-shadow: 0px 0px 0px 0px #00000000;
+  --theme-pop-up-button-radius: 10px;
+  --theme-pop-up-button-padding: 12px 20px 12px 20px;
+  --theme-pop-up-button-hover-color: #F2C7DA14;
+  --theme-pop-up-button-hover-border: inset 0 0 0 2px #E71C4F;
+  --theme-pop-up-button-hover-shadow: 3px 3px 5px 0px #2F2E2E33;
+;
 
   --theme-pop-up-button-text-color: #FFFFFF;
-  --theme-pop-up-button-text-hover-color: #FFFFFF;
-  --theme-pop-up-button-text-font-family: "Red Rose", serif;
-  --theme-pop-up-button-text-font-size: 20px;
+  --theme-pop-up-button-text-exit-color: #ED1B76;
+  --theme-pop-up-button-text-exit-hover-color: #E71C4F;
+  --theme-pop-up-button-text-hover-color: #ED1B76;
+  --theme-pop-up-button-text-font-family: "Orbitron", serif;
+  --theme-pop-up-button-text-font-size: 16px;
   
 }

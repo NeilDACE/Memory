@@ -41,4 +41,40 @@ li {
   @include mix.container;
 }
 
+.settings-image {
+  transition: opacity 300ms;
+}
+
+@media (max-width: 1080px) {
+  body {
+    padding: 64px 64px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    height: auto;
+  }
+
+  .settings-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-container {
+    align-items: center;
+  }
+
+  .settings-image {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
 

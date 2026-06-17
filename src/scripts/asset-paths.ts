@@ -96,4 +96,12 @@ export const assetPaths = {
    */
   getDrawIcon: (theme: string): string =>
     `${ASSET_BASE}/imgs/themes/${theme}/draw.svg`,
-};
+
+  /**
+   * Returns the scale icon path for a theme.
+   * @param theme Theme folder name.
+   * @returns Scale icon path.
+   */
+  getScaleIcon: (theme: string): string =>
+    `${ASSET_BASE}/imgs/themes/${theme}/scale-icon.svg`,
+  };

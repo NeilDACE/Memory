@@ -1,4 +1,5 @@
 import { assetPaths } from "../../main";
+import { fadeSwapSrc } from "../utils";
 import { gameState } from "./state";
 import {
   type ExitDialogElements,
@@ -7,6 +8,14 @@ import {
   type WinnerInfo,
 } from "./types";
 import { playWinAnimation } from "./win-animation";
+
+/**
+ * Prevents page scrolling while a dialog is open.
+ * @returns Nothing.
+ */
+function setBodyOverflowHidden(): void {
+  document.body.style.overflow = "hidden";
+}
 
 /**
  * Updates a team score in the score panel.
@@ -95,8 +104,8 @@ function getGameDialogElements(): GameDialogElements {
  * @returns Nothing.
  */
 function setTeamIcons(teamOneIcon: HTMLImageElement | null, teamTwoIcon: HTMLImageElement | null): void {
-  if (teamOneIcon) teamOneIcon.src = assetPaths.getTeamIcon(gameState.currentTheme, 1);
-  if (teamTwoIcon) teamTwoIcon.src = assetPaths.getTeamIcon(gameState.currentTheme, 2);
+  if (teamOneIcon) fadeSwapSrc(teamOneIcon, assetPaths.getTeamIcon(gameState.currentTheme, 1));
+  if (teamTwoIcon) fadeSwapSrc(teamTwoIcon, assetPaths.getTeamIcon(gameState.currentTheme, 2));
 }
 
 /**
@@ -126,8 +135,15 @@ function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo)
     elements.winnerText.textContent = winnerInfo.name;
     if (winnerInfo.cssClass) elements.winnerText.classList.add(winnerInfo.cssClass);
   }
-  if (elements.winnerIcon) elements.winnerIcon.src = winnerInfo.icon;
-  if (winnerInfo.name === "It's a" && elements.title) elements.title.innerHTML = "It's a";
+  if (elements.winnerIcon) fadeSwapSrc(elements.winnerIcon, winnerInfo.icon);
+  if (winnerInfo.name === "It's a" && elements.title) {
+    elements.title.innerHTML = "It's a";
+    const drawIcon = document.getElementById("draw-icon") as HTMLImageElement | null;
+    if (drawIcon) {
+      drawIcon.style.display = "block";
+      fadeSwapSrc(drawIcon, assetPaths.getScaleIcon(gameState.currentTheme));
+    }
+  }
 }
 
 /**
@@ -156,9 +172,14 @@ export function checkForGameEnd(): void {
   displayWinnerInfo(elements, winnerInfo);
   displayFinalScores(elements, scores);
   elements.dialog.showModal();
+  setBodyOverflowHidden();
   startConfettiAnimation();
 }
 
+/**
+ * Starts the confetti animation for the finished-game dialog.
+ * @returns Nothing.
+ */
 function startConfettiAnimation(): void {
   const confettiCanvas = document.getElementById("winner-confetti-canvas") as HTMLCanvasElement | null;
   if (confettiCanvas) playWinAnimation(confettiCanvas);
