@@ -98,6 +98,14 @@ export const assetPaths = {
     `${ASSET_BASE}/imgs/themes/${theme}/draw.svg`,
 
   /**
+   * Returns the game over icon path for a theme.
+   * @param theme Theme folder name.
+   * @returns Game over icon path.
+   */
+  getGameOverIcon: (theme: string): string =>
+    `${ASSET_BASE}/imgs/themes/${theme}/game-over.svg`,
+
+  /**
    * Returns the scale icon path for a theme.
    * @param theme Theme folder name.
    * @returns Scale icon path.
