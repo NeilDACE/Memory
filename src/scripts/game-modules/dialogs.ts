@@ -150,7 +150,7 @@ function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo)
  * Sets the themed game-over icon in the finished-game dialog.
  * @returns Nothing.
  */
-function setGameOverIcon(): void {
+export function setGameOverIcon(): void {
   const gameOverIcon = document.getElementById("game-over-icon") as HTMLImageElement | null;
   if (gameOverIcon) {
     fadeSwapSrc(gameOverIcon, assetPaths.getGameOverIcon(gameState.currentTheme));
@@ -193,7 +193,6 @@ function updateFinishedDialogView(dialog: HTMLDialogElement | null, state: "game
  * @returns Nothing.
  */function openFinishedGameDialog(dialog: HTMLDialogElement): void {
   updateFinishedDialogView(dialog, "game-over");
-  setGameOverIcon();
   dialog.showModal();
   setBodyOverflowHidden();
   window.setTimeout(() => {
@@ -293,4 +292,5 @@ export function initializeExitDialog(): void {
   bindExitDialogPanelStop(elements);
   bindExitDialogOpen(elements);
   bindExitDialogClose(elements);
+
 }
