@@ -2,6 +2,7 @@
 @use "../base/variables" as var;
 
 .btn {
+	position: relative;
 	@include mix.flex-center($direction: row);
 	border: none;
 	background-color: var.$yellow;
@@ -38,13 +39,24 @@
 	transform: rotate(-30deg);
 }
 
-.btn__img__secondary {
-	transition: transform var.$duration-fast var.$ease-standard;
+.btn__img__secondary--secondary {
+	position: absolute;
+	right: 24px;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
 }
 
-.btn:hover .btn__img__secondary {
-	content: url("/assets/imgs/arrow-hover.svg");
-	transform: translateX(2px);
+.btn__img__secondary--primary {
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover .btn__img__secondary--primary {
+  opacity: 0;
+}
+
+.btn:hover .btn__img__secondary--secondary {
+  opacity: 1;
 }
 
 .btn__text {
