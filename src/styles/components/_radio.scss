@@ -38,3 +38,11 @@ input[type="radio"]:checked {
     }
   }
 }
+
+label:hover .radio-box {
+  border: 3px solid var.$gray;
+}
+
+label:hover .radio-box::after {
+  transform: translate(-50%, -50%) scale(1);
+}

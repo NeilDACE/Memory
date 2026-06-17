@@ -4,9 +4,14 @@
   @include mix.stack(12px);
 }
 
+.settings-section__option:hover {
+  font-weight: bold;
+}
+
 .settings-section__option:has(input[type="radio"]:checked) {
   font-weight: bold;
 }
+
 
 .settings-section__option label {
   @include mix.row(8px);
@@ -19,6 +24,10 @@
   width: 41px;
   height: 3px;
   background-color: mix.$yellow;
+}
+
+input[type="radio"]:hover ~ .selected-marker {
+  visibility: visible;
 }
 
 input[type="radio"]:checked ~ .selected-marker {

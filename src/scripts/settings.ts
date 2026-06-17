@@ -90,6 +90,27 @@ function formatSizeLabel(size: Settings["size"]): string {
  */
 function bindSettingsRadios() {
   document.addEventListener("change", handleSettingsChange);
+  bindThemePreviewHover();
+}
+
+/**
+ * Binds hover events on the theme options so the preview updates on hover.
+ * @returns Nothing.
+ */
+function bindThemePreviewHover() {
+  const themeOptionLabels = document.querySelectorAll<HTMLLabelElement>(
+    ".settings-section__option label"
+  );
+  themeOptionLabels.forEach((label) => {
+    const input = label.querySelector<HTMLInputElement>("input[name=\"theme\"]");
+    if (!input) return;
+    const theme = input.value as Settings["theme"];
+    label.addEventListener("mouseenter", () => updateThemePreview(theme));
+    label.addEventListener("mouseleave", () => {
+      const currentSettings = loadSettings();
+      if (currentSettings.theme) updateThemePreview(currentSettings.theme);
+    });
+  });
 }
 
 /**
@@ -133,7 +154,6 @@ function handleThemeSelection(theme: Settings["theme"]) {
   saveSettings({ theme });
   themeSelected = true;
   updateText("selected-theme-value", formatThemeLabel(theme));
-  updateThemePreview(theme);
 }
 
 /**

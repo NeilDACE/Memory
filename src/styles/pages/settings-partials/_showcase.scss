@@ -12,6 +12,8 @@
 
 .showcase-section__text {
   @include mix.text-style(mix.$font-body, 20px, mix.$gray);
+  text-align: center;
+  width: 140px;
 }
 
 .showcase-section__btn__text {
@@ -65,7 +67,7 @@
   height: 4px;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1120px) {
   .showcase-section__content {
     display: none;
   }
