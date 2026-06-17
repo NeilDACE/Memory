@@ -1,6 +1,7 @@
 import { initializeField } from "./board";
 import { initializeExitDialog } from "./dialogs";
 import { applyStoredSettings, initializeThemeLoading } from "./settings";
+import { setGameOverIcon } from "./dialogs";
 
 /**
  * Initializes the game flow before field setup.
@@ -18,6 +19,7 @@ function initializeGameFlow(): void {
  */
 export function init(): void {
   initializeGameFlow();
+  setGameOverIcon();
   const fieldRef = document.getElementById("field");
   if (fieldRef) {
     initializeField(fieldRef);
