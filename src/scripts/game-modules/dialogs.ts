@@ -152,9 +152,41 @@ function displayWinnerInfo(elements: GameDialogElements, winnerInfo: WinnerInfo)
  * @param scores Final team scores.
  * @returns Nothing.
  */
+/**
+ * Writes final team scores into the finished-game dialog.
+ * @param elements Dialog element bundle.
+ * @param scores Final team scores.
+ * @returns Nothing.
+ */
 function displayFinalScores(elements: GameDialogElements, scores: TeamScores): void {
   if (elements.teamOneScore) elements.teamOneScore.textContent = String(scores.teamOne);
   if (elements.teamTwoScore) elements.teamTwoScore.textContent = String(scores.teamTwo);
+}
+
+/**
+ * Switches the finished dialog visual state between game over and winner content.
+ * @param dialog The finished-game dialog element.
+ * @param state The content state to show.
+ * @returns Nothing.
+ */
+function updateFinishedDialogView(dialog: HTMLDialogElement | null, state: "game-over" | "winner"): void {
+  if (!dialog) return;
+
+  dialog.classList.toggle("finished-game-dialog--show-game-over", state === "game-over");
+  dialog.classList.toggle("finished-game-dialog--show-winner", state === "winner");
+}
+/**
+ * Opens the finished-game dialog and shows the game-over content first.
+ * After a short delay the dialog switches to the winner content.
+ * @param dialog The finished-game dialog element.
+ * @returns Nothing.
+ */function openFinishedGameDialog(dialog: HTMLDialogElement): void {
+  updateFinishedDialogView(dialog, "game-over");
+  dialog.showModal();
+  setBodyOverflowHidden();
+  window.setTimeout(() => {
+    updateFinishedDialogView(dialog, "winner"),startConfettiAnimation();
+  }, 2000);
 }
 
 /**
@@ -171,9 +203,8 @@ export function checkForGameEnd(): void {
   const winnerInfo = getWinnerInfo(scores.teamOne, scores.teamTwo);
   displayWinnerInfo(elements, winnerInfo);
   displayFinalScores(elements, scores);
-  elements.dialog.showModal();
-  setBodyOverflowHidden();
-  startConfettiAnimation();
+  openFinishedGameDialog(elements.dialog);
+  
 }
 
 /**
