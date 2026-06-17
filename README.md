@@ -3,7 +3,7 @@
 Short Description
 
 - Browser-based memory matching game with four themes.
-
+<img width="1717" height="871" alt="image" src="https://github.com/user-attachments/assets/3c5ec3cb-4eaf-413b-bb1b-5e05cbeb51a7" />
 Languages Used
 
 - HTML — page structure and modules
