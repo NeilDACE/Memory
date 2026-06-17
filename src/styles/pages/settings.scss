@@ -1,0 +1,80 @@
+@use "../components/main" as mix;
+@use "./settings-partials/title";
+@use "./settings-partials/options";
+@use "./settings-partials/showcase";
+
+body {
+  @include mix.page-center;
+  height: 100dvh;
+  background-color: mix.$white;
+  padding: 100px 170px;
+}
+
+h2 {
+  @include mix.text-style(mix.$font-body, 24px, mix.$gray, bold);
+}
+
+li {
+  @include mix.text-style(mix.$font-body, 20px, mix.$gray);
+}
+
+.left-container {
+  @include mix.stack(54px);
+}
+
+.right-container {
+  @include mix.stack(32px, $align: flex-end, $justify: center);
+}
+
+.settings-section {
+  @include mix.stack(16px);
+}
+
+.settings-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 64px;
+}
+
+.settings-container {
+  @include mix.container;
+}
+
+.settings-image {
+  transition: opacity 300ms;
+}
+
+@media (max-width: 1080px) {
+  body {
+    padding: 64px 64px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    height: auto;
+  }
+
+  .settings-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-container {
+    align-items: center;
+  }
+
+  .settings-image {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+

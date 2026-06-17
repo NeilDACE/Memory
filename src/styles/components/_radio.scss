@@ -1,0 +1,40 @@
+@use "../base/variables" as var;
+
+input[type="radio"] {
+  display: none;
+}
+
+.radio-box {
+  width: 20px;
+  height: 20px;
+  border: 4px solid var.$gray;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: var.$gray;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+  }
+}
+
+input[type="radio"]:checked {
+  & + .radio-box {
+    border: 3px solid var.$gray;
+
+    &::after {
+      background-color: var.$gray;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}

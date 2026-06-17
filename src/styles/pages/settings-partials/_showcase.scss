@@ -1,0 +1,73 @@
+@use "../../components/main" as mix;
+
+.showcase-section {
+  @include mix.row(16px, $justify: center);
+  padding: 14px 20px;
+  background-color: mix.$light-gray;
+}
+
+.showcase-section__content {
+  @include mix.row(0, $justify: space-between);
+}
+
+.showcase-section__text {
+  @include mix.text-style(mix.$font-body, 20px, mix.$gray);
+}
+
+.showcase-section__btn__text {
+  @include mix.text-style(
+    mix.$font-heading,
+    mix.$size-button-text-sm,
+    mix.$gray,
+    bold
+  );
+}
+
+.showcase-section__btn.unselect {
+  background-color: #DBDBD6;
+  pointer-events: none;
+  cursor: default;
+  &:hover {
+    transform: none;
+  }
+  & .showcase-section__btn__text {
+    color: #A3A1A1;
+  }
+  & .showcase-section__btn__img {
+    opacity: 0.33;
+  }
+}
+
+.showcase-section__divider {
+  position: relative;
+  width: 56px;
+  height: 8px;
+  background-color: mix.$yellow;
+  transform: rotate(109deg);
+}
+
+.showcase-section__divider::after {
+  @include mix.diamond-marker(
+    $size: 12px,
+    $color: mix.$yellow,
+    $bottom: -4.5px,
+    $right: -2px,
+    $display: none,
+    $margin-left: -8px
+  );
+}
+
+.showcase-section__divider.display-block::after {
+  display: flex;
+}
+
+.height-04 {
+  height: 4px;
+}
+
+@media (max-width: 1350px) {
+  .showcase-section__content {
+    display: none;
+  }
+}
+

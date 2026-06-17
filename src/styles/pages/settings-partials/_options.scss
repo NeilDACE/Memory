@@ -1,0 +1,40 @@
+@use "../../components/main" as mix;
+
+.settings-section__options {
+  @include mix.stack(12px);
+}
+
+.settings-section__option:has(input[type="radio"]:checked) {
+  font-weight: bold;
+}
+
+.settings-section__option label {
+  @include mix.row(8px);
+  cursor: pointer;
+}
+
+.selected-marker {
+  visibility: hidden;
+  position: relative;
+  width: 41px;
+  height: 3px;
+  background-color: mix.$yellow;
+}
+
+input[type="radio"]:checked ~ .selected-marker {
+  visibility: visible;
+}
+
+.selected-marker::after {
+  @include mix.diamond-marker(
+    $size: 12px,
+    $color: mix.$yellow,
+    $bottom: -4.5px,
+    $right: 0,
+    $margin-left: -8px
+  );
+}
+
+.settings-section__title {
+  @include mix.row(8px);
+}

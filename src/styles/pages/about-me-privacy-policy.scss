@@ -1,0 +1,68 @@
+@use "../components/main" as mix;
+
+body {
+	@include mix.flex-center;
+	min-height: 100dvh;
+	background-color: mix.$gray;
+	padding: 32px;
+}
+
+.legal-page {
+	@include mix.flex-center;
+	gap: 20px;
+	max-width: 900px;
+	width: 100%;
+	text-align: center;
+}
+
+.legal-page h1 {
+	font-family: mix.$font-heading;
+	font-weight: 700;
+	font-size: mix.$size-heading-lgr;
+	color: mix.$white;
+	margin-bottom: 8px;
+}
+
+.legal-section {
+	@include mix.flex-center;
+	gap: 8px;
+}
+
+.legal-section h2 {
+	font-family: mix.$font-body;
+	font-size: 30px;
+	font-weight: 700;
+	color: mix.$white;
+}
+
+.legal-section p {
+	font-family: mix.$font-body;
+	font-size: 24px;
+	color: mix.$white;
+	line-height: 1.5;
+}
+
+.legal-section a {
+	font-family: mix.$font-body;
+	font-size: 24px;
+	color: mix.$white;
+	text-decoration: underline;
+}
+
+.legal-section a:hover {
+	color: mix.$yellow;
+  text-decoration: none;
+}
+
+.legal-back-link {
+	margin-top: 8px;
+	font-family: mix.$font-body;
+	font-size: 20px;
+	color: mix.$yellow;
+	text-decoration: underline;
+}
+
+.legal-back-link:hover {
+	color: mix.$white;
+  text-decoration: none;
+}

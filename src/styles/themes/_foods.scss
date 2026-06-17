@@ -1,0 +1,89 @@
+// Theme scaffold: foods
+[data-theme="foods"] {
+  --theme-bg: #FFFFFF;
+  --theme-card-height: 122px;
+  --theme-card-width: 122px;
+  
+  --theme-header-bg:#F0E5D9;
+  --theme-header-radius: 10px;
+  --theme-header-shadow: 3px 2px 10.1px 0px #00000033;
+
+  --theme-header-left-frame-bg: #FFFFFF;
+  --theme-header-left-frame-radius: 10px;
+  --theme-header-left-frame-shadow: 0px 0px 0px 0px #00000000;
+  --theme-header-left-frame-padding: 8px 20px 8px 20px;
+
+  --theme-header-left-frame-points-font-family: "Delius Unicase", serif;
+  --theme-header-left-frame-points-team-1-color: #097FC5;
+  --theme-header-left-frame-points-team-2-color: #EA6900;
+  --theme-header-left-frame-points-font-size: 30px;
+
+  --theme-header-current-player-font-family: "Klee One", serif;
+  --theme-header-current-player-color: #A45212;
+  --theme-header-current-player-font-size: 32px;
+  --theme-header-current-player-gap: 18px;
+
+  --theme-pop-up-bg: #F6F6F6;
+  --theme-pop-up-radius: 20px;
+  --theme-pop-up-font-family: "Klee One", serif;
+  --theme-pop-up-font-color: #A45212;
+  --theme-pop-up-font-size: 28px;
+
+  --theme-game-over-bg: #F3832D;
+  --theme-game-over-padding: 24px;
+  --theme-game-over-text-color: #FFFFFF;
+  --theme-game-over-text-size: 42px;
+
+  --theme-winner-bg: #F6F6F6;
+  --theme-winner-headline-color: #A45212;
+  --theme-winner-headline-font-family: "Klee One", serif;
+  --theme-winner-headline-size: 80px;
+  --theme-winner-text-color: #A45212;
+  --theme-winner-text-font-family: "Klee One", serif;
+  --theme-winner-text-size: 40px;
+
+  --theme-draw-bg: #F6F6F6;
+  --theme-draw-text-color: #F3832D;
+  --theme-draw-text-font-family: "Klee One", serif;
+  --theme-draw-text-size: 40px;
+  --theme-card-border-radius: 0px;
+  --theme-card-shadow: 0px 0px 0px 0px #00000000;
+
+  --match-status-color:#F4ECE4;
+  --match-status-inner-border: inset 0 0 0 4px #F3832D;
+  --match-status-shadow: 0px 0px 0px 0px #00000000;
+
+  --theme-exit-button-color:#FFF9F2;
+  --theme-exit-button-border: inset 0 0 0 3px #F3832D;
+  --theme-exit-button-radius: 10px;
+  --theme-exit-button-padding: 12px 20px 12px 20px;
+  --theme-exit-button-hover-color: #F3832D;
+  --theme-exit-button-hover-border: inset 0 0 0 3px #F3832D;
+  --theme-exit-button-hover-shadow: 3px 3px 5px 0px #2F2E2E33;
+
+  --theme-exit-button-icon-color: #F3832D;
+  --theme-exit-button-icon-size: size(22px, 22px);
+  --theme-exit-button-icon-hover-color: #FFFFFF;
+  --theme-exit-button-icon-hover-shadow: 0px 0px 0px 0px #00000000;
+
+  --theme-exit-button-text-color: #F3832D;
+  --theme-exit-button-text-hover-color: #FFFFFF;
+  --theme-exit-button-text-font-family: "Delius Unicase", serif;
+  --theme-exit-button-text-font-size: 16px;
+
+  --theme-pop-up-button-color: #FFAB3E;
+  --theme-pop-up-button-border: inset 0 0 0 3px #F3832D;
+  --theme-pop-up-button-radius: 10px;
+  --theme-pop-up-button-padding: 12px 20px 12px 20px;
+  --theme-pop-up-button-hover-color: #F3832D;
+  --theme-pop-up-button-hover-border: inset 0 0 0 3px #F3832D;
+  --theme-pop-up-button-hover-shadow: 3px 3px 5px 0px #00000033;
+
+  --theme-pop-up-button-text-color: #FFFFFF;
+  --theme-pop-up-button-text-exit-color: #F3832D;
+  --theme-pop-up-button-text-exit-hover-color: #FFFFFF;
+  --theme-pop-up-button-text-hover-color: #FFFFFF;
+  --theme-pop-up-button-text-font-family: "Delius Unicase", serif;
+  --theme-pop-up-button-text-font-size: 16px;
+
+}

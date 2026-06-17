@@ -1,0 +1,151 @@
+@use "../../components/main" as mix;
+
+.exit-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: 100%;
+  border: none;
+  padding: 0;
+  background: transparent;
+  &__panel {
+    @include mix.stack(64px, $align: center);
+    background: var(--theme-pop-up-bg);
+    border-radius: var(--theme-pop-up-radius);
+    padding: 40px;
+  }
+  &__text {
+    font-family: var(--theme-pop-up-font-family);
+    color: var(--theme-pop-up-font-color);
+    font-size: var(--theme-pop-up-font-size);
+    font-weight: bold;
+    text-align: center;
+  }
+  &__buttons-container {
+    @include mix.row(24px);
+  }
+  &__button {
+    display: flex;
+    border: none;
+    background-color: var(--theme-pop-up-button-color);
+    box-shadow:  var(--theme-pop-up-button-border);
+    border-radius: var(--theme-pop-up-button-radius);
+    padding: var(--theme-pop-up-button-padding);
+    font-family: var(--theme-pop-up-button-text-font-family);
+    font-size: var(--theme-pop-up-button-text-font-size);
+    font-weight: bold;
+    color: var(--theme-pop-up-button-text-color);
+    text-align: center;
+    cursor: pointer;
+  }
+  &__button--cancel {
+    &:hover {
+      background-color: var(--theme-pop-up-button-hover-color);
+      box-shadow:
+        var(--theme-pop-up-button-hover-border),
+        var(--theme-pop-up-button-hover-shadow);
+      color: var(--theme-pop-up-button-text-hover-color);
+    }
+  }
+  &__button--confirm {
+    background-color: var(--theme-pop-up-exit-button-color, var(--theme-exit-button-color));
+    border: none;
+    box-shadow:
+      var(--theme-exit-button-border),
+      var(--theme-pop-up-exit-button-shadow, 0px 0px 0px 0px #00000000);
+    border-radius: var(--theme-exit-button-radius);
+    padding: var(--theme-exit-button-padding);
+    color: var(--theme-pop-up-button-text-exit-color);
+    &:hover {
+      background-color: var(--theme-pop-up-exit-button-hover-color, var(--theme-exit-button-hover-color));
+      box-shadow:
+        var(--theme-exit-button-hover-border),
+        var(--theme-pop-up-exit-button-shadow, var(--theme-exit-button-hover-shadow));
+      color: var(--theme-pop-up-button-text-exit-hover-color);
+    }
+  }
+}
+
+.exit-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finished-game-dialog {
+  position: fixed;
+  inset: 0;
+  overflow: visible;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  padding: 0;
+  background: transparent;
+  &__confetti-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 3;
+  }
+  &__panel {
+    position: relative;
+    z-index: 4;
+    @include mix.stack(64px, $align: center);
+  }
+  &__text {
+    font-family: var(--theme-winner-text-font-family);
+    color: var(--theme-winner-text-color);
+    font-size: var(--theme-winner-text-size);
+    text-align: center;
+  }
+  &__winner {
+    font-family: var(--theme-winner-headline-font-family);
+    color: var(--theme-winner-headline-color);
+    font-size: var(--theme-winner-headline-size);
+    font-weight: bold;
+  }
+  &__winner-icon {
+    transition: opacity 300ms;
+  }
+  &__draw-icon {
+    display: none;
+    transition: opacity 300ms;
+  }
+  &__button {
+    font-family: var(--theme-exit-button-text-font-family);
+    font-size: var(--theme-exit-button-text-font-size);
+    font-weight: bold;
+    background-color: var(--theme-exit-button-color);
+    border: none;
+    box-shadow: var(--theme-exit-button-border);
+    border-radius: var(--theme-exit-button-radius);
+    padding: var(--theme-exit-button-padding);
+    color: var(--theme-exit-button-text-color);
+    &:hover {
+      background-color: var(--theme-exit-button-hover-color);
+      box-shadow:
+        var(--theme-exit-button-hover-border),
+        var(--theme-exit-button-hover-shadow);
+      color: var(--theme-exit-button-text-hover-color);
+    }
+  }
+}
+
+.finished-game-dialog::backdrop {
+  background-color: var(--theme-winner-bg);
+}
+
+@media (max-width: 600px) {
+  .finished-game-dialog__winner-icon {
+    width: 150px;
+    height: 150px;
+   
+  }
+  .finished-game-dialog__draw-icon {
+    width: 150px;
+    height: 150px;
+  }
+}

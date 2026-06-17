@@ -1,0 +1,30 @@
+@use "../../components/main" as mix;
+
+.settings-title {
+  position: relative;
+  font-family: mix.$font-heading;
+  font-size: mix.$size-heading-lgr;
+  color: mix.$gray;
+  display: inline-block;
+  padding: 12px;
+}
+
+.settings-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: mix.$yellow;
+}
+
+.settings-title::after {
+  @include mix.diamond-marker(
+    $size: 16px,
+    $color: mix.$yellow,
+    $bottom: -6px,
+    $left: 0,
+    $margin-left: -8px
+  );
+}
